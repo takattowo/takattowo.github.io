@@ -1,282 +1,322 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta name="google-site-verification" content="V0s6d20bEVVqHFUiWx_uPP4oCVsT6ayugOTXLmLXtbw" />
+        <title>takattoFS2 Patcher - TAKATTO's stuffs</title>
+        <meta name="description" content="A cutie patcher to customize the game FreeStyle 2: Street BasketBall~" />
+        <link rel="icon" href="/fs2/assets/nako.ico" />
+        <link rel="stylesheet" href="/fs2/assets/style.css" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+        <script src="/fs2/assets/script.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>
 
-<head>
-	<meta name="google-site-verification" content="V0s6d20bEVVqHFUiWx_uPP4oCVsT6ayugOTXLmLXtbw" />
-	<title>takattoFS2 Patcher - TAKATTO's stuffs </title>
-	<meta name="description" content="A cutie patcher to customize the game FreeStyle 2: Street BasketBall~">
-	<link rel="icon" href="/fs2/assets/nako.ico">
-	<link rel="stylesheet" href="/fs2/assets/style.css" type="text/css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />	
-	<script src="/fs2/assets/script.js" type="text/javascript"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</head>
+    <body>
+        <header class="site-header js-site-header" data-context="theme.nav" data-hover-hint="nav" data-hover-hint-placement="top-start">
+            <nav class="nav-container" data-hover-hint="nav" data-hover-hint-placement="bottom-start">
+                <div class="project-title"><a href="#" class="active">TAKATTO's stuffs</a></div>
+            </nav>
+            <div class="social pf-nav-social" data-context="theme.nav" data-hover-hint="navSocialIcons" data-hover-hint-placement="bottom-start">
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/taka2chinko/" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50" style="null" class="icon icons8-Facebook-Filled">
+                                <path
+                                    d="M40,0H10C4.486,0,0,4.486,0,10v30c0,5.514,4.486,10,10,10h30c5.514,0,10-4.486,10-10V10C50,4.486,45.514,0,40,0z M39,17h-3 c-2.145,0-3,0.504-3,2v3h6l-1,6h-5v20h-7V28h-3v-6h3v-3c0-4.677,1.581-8,7-8c2.902,0,6,1,6,1V17z"
+                                ></path>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="hamburger-click-area js-hamburger">
+                <div class="hamburger"><i></i><i></i><i></i></div>
+            </div>
+        </header>
+        <img style="position: fixed; bottom: 0; right: 29px; display: none; pointer-events: none; z-index: 29;" id="waifu" onerror="ImgError(this)" src="/fs2/assets/empty.png" />
+        <div id="bod">
+            <div class="cover-content-container">
+                <div class="cover-image-wrap">
+                    <div class="cover-image">
+                        <div class="cover cover-normal">
+                            <img
+                                class="cover__img js-lazy image-loaded"
+                                src="/fs2/assets/banner_origin.jpg"
+                                srcset="/fs2/assets/banner_origin.jpg"
+                                sizes="(max-width: 0px) 100vw, (max-width: 0px) 50vw, 100vw"
+                                style="width: 0; position: absolute;"
+                            />
+                            <img id="notbanner" class="cover__img js-lazy image-loaded" src="/fs2/assets/banner7s.png" srcset="/fs2/assets/banner7s.png" sizes="(max-width: 540px) 100vw, (max-width: 768px) 50vw, 100vw" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-content" id="install">
+                <div class="list-title install">
+                    <h3 id="title">Installation</h3>
+                </div>
+            </div>
+            <h1 class="title preserve-whitespace e2e-site-logo-text"></h1>
+            <div id="howToUseContent" class="tab-content">
+                <div id="jp_server" class="tab-pane fade show active" role="tabpanel" aria-labelledby="jp_tab">
+                    <ul id="howToUseJpTabs" class="nav nav-tabs" role="tablist">
+                        <li class="nav-item"><a class="nav-link" href="#tab1" data-toggle="tab" aria-controls="tab1" aria-selected="false">Download</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tab2" data-toggle="tab" aria-controls="tab2" aria-selected="false">Virustotal</a></li>
+                        <li class="nav-item"><a class="nav-link active show" href="#tab3" data-toggle="tab" aria-controls="tab3" aria-selected="false">Changelog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tab4" data-toggle="tab" aria-controls="tab4" aria-selected="false">Description</a></li>
+                    </ul>
+                    <script>
+                        $(document).ready(function () {
+                            $("#link_docwnload").click(function () {
+                                alert("Due to frequently changes of program binary (updates/bug fixes), the browser might sometime say it's an uncommon download (usually Chrome). Just ignore and allow it.");
+                            });
+                        });
+                    </script>
+                    <div id="howToUseJpContent" class="tab-content firstw">
+                        <div id="tab1" class="tab-pane fade" role="tabpanel" aria-labelledby="tab1">
+                            <p style="padding: 0 2rem 0 2rem;">
+                                There maybe warning at the first time running because the program has no digital signature. Please allow the program to run on your computer~
+                                <a id="link_setup" class="card-link" target="_blank" href="https://cdn.discordapp.com/attachments/783631315688751106/827598162474434580/how_to_allow_program_to_run.png"><b> [Click here for picture]</b></a>
+                            </p>
+                            <ol>
+                                <a id="link_docwnload" class="card-link" target="_blank" href="/fs2/assets/takattofs2_installer.zip">
+                                    <button class="btn btn-primary collapsed" type="button">Installer</button>
+                                </a>
+                                <a id="link_docwnload" class="card-link" target="_blank" href="/fs2/assets/released.zip"> Zip archived</a>
+                            </ol>
+                        </div>
 
-<body>
-	<header class="site-header js-site-header " data-context="theme.nav" data-hover-hint="nav" data-hover-hint-placement="top-start">
-		<nav class="nav-container" data-hover-hint="nav" data-hover-hint-placement="bottom-start">
-			<div class="project-title"><a href="#" class="active">TAKATTO's stuffs</a></div>
-		</nav>
-		<div class="social pf-nav-social" data-context="theme.nav" data-hover-hint="navSocialIcons" data-hover-hint-placement="bottom-start">
-			<ul>
-				<li>
-					<a href="https://www.facebook.com/taka2chinko/" target="_blank">
-						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50" style="null" class="icon icons8-Facebook-Filled">
-							<path d="M40,0H10C4.486,0,0,4.486,0,10v30c0,5.514,4.486,10,10,10h30c5.514,0,10-4.486,10-10V10C50,4.486,45.514,0,40,0z M39,17h-3 c-2.145,0-3,0.504-3,2v3h6l-1,6h-5v20h-7V28h-3v-6h3v-3c0-4.677,1.581-8,7-8c2.902,0,6,1,6,1V17z"></path>
-						</svg>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class="hamburger-click-area js-hamburger">
-			<div class="hamburger"><i></i><i></i><i></i></div>
-		</div>
-	</header> <img style="position: fixed;bottom: 0;right: 29px;display: none;pointer-events: none;z-index: 29" id="waifu" onerror="ImgError(this)" src="/fs2/assets/empty.png">
-	<div id="bod">
-		<div class="cover-content-container">
-			<div class="cover-image-wrap">
-				<div class="cover-image">
-					<div class="cover cover-normal"><img class="cover__img js-lazy image-loaded" src="/fs2/assets/banner_origin.jpg" srcset="/fs2/assets/banner_origin.jpg" sizes="(max-width: 0px) 100vw, (max-width: 0px) 50vw, 100vw" style="width: 0;position: absolute;"><img id="notbanner" class="cover__img js-lazy image-loaded" src="/fs2/assets/banner7s.png" srcset="/fs2/assets/banner7s.png" sizes="(max-width: 540px) 100vw, (max-width: 768px) 50vw, 100vw"></div>
-				</div>
-			</div>
-		</div>
-		<div class="top-content" id="install">
-			<div class="list-title install">
-				<h3 id="title">Installation</h3> </div>
-		</div>
-		<h1 class="title preserve-whitespace e2e-site-logo-text"></h1>
-		<div id="howToUseContent" class="tab-content">
-			<div id="jp_server" class="tab-pane fade show active" role="tabpanel" aria-labelledby="jp_tab">
-				<ul id="howToUseJpTabs" class="nav nav-tabs" role="tablist">
-					<li class="nav-item"><a class="nav-link" href="#tab1" data-toggle="tab" aria-controls="tab1" aria-selected="false">Download</a></li>
-					<li class="nav-item"><a class="nav-link" href="#tab2" data-toggle="tab" aria-controls="tab2" aria-selected="false">Virustotal</a></li>
-					<li class="nav-item"><a class="nav-link active show" href="#tab3" data-toggle="tab" aria-controls="tab3" aria-selected="false">Changelog</a></li>	
-					<li class="nav-item"><a class="nav-link" href="#tab4" data-toggle="tab" aria-controls="tab4" aria-selected="false">Description</a></li>
-				</ul>
-				
-				<script>
-					$(document).ready(function(){
-						$("#link_docwnload").click(function(){alert("Due to frequently changes of program binary (updates/bug fixes), the browser might sometime say it's an uncommon download (usually Chrome). Just ignore and allow it.")});
-					});
-				</script>
-				
-				<div id="howToUseJpContent" class="tab-content firstw">
-					<div id="tab1" class="tab-pane fade" role="tabpanel" aria-labelledby="tab1">
-						<p style="padding: 0 2rem 0 2rem;">There maybe warning at the first time running because the program has no digital signature. Please allow the program to run on your computer~ 
-						<a id="link_setup" class="card-link" target="_blank" href="https://cdn.discordapp.com/attachments/783631315688751106/827598162474434580/how_to_allow_program_to_run.png"><b> [Click here for picture]</b></a></p>
-						<ol>
-							<a id="link_docwnload" class="card-link" target="_blank" href="/fs2/assets/takattofs2_installer.zip">
-								<button class="btn btn-primary collapsed" type="button"> Installer</button>
-							</a> 
-							<a id="link_docwnload" class="card-link" target="_blank" href="/fs2/assets/released.zip"> Zip archived</a>
-					</div>
-					<div id="tab2" class="tab-pane fade" role="tabpanel" aria-labelledby="tab2">
-						<ol>
-							<a id="link_setup" class="card-link" target="_blank" href="https://www.virustotal.com/gui/file/7d36d47c6a3af05b3317e7c63f016d93be0c08583c94ac5882eb57cd92fdebc3/detection">v2.7.8.2 Executable</a> 
-							<a id="link_setup" class="card-link" target="_blank" href="https://www.virustotal.com/gui/file/2dfe93b4806c8796bd612d4c05d62dd6ff9ae09821c38adee73f8d8afad7bcf8/detection">Installer Executable</a></ol>
-					</div>
-					<div id="tab3" class="tab-pane fade active show" role="tabpanel" aria-labelledby="tab3">
-						<ol>	
-							<li seq="2.7.8.2"><b>Final release!</b> Hopefully no more bugs~ ｡ﾟ(TヮT)ﾟ｡</li>
-							<li seq="2.7.7.2">Crashes fixed on Tiancity client! __〆(￣▽￣ )</li>
-							<li seq="2.7.7.1"><b>Character Voice</b> (beta) is now open to use~ (￣、￣〃)</li>
-							<li seq="2.7.5.6">New algorithm for tweakings.</li>
-							<br/>
-							<button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseChangelog" aria-expanded="false" aria-controls="collapseChangelog"> Show more </button> <a id="link_setup" class="card-link" target="_blank" href="https://cdn.discordapp.com/attachments/638745174939402246/848950398051287110/uwu.png" style="color: #ab0000!important;"> [Project is partially discontinued]</a>
-							<div class="mt-1 collapse" id="collapseChangelog" style="">
-								<div id="accordionChangelog">	
-									<li seq="2.7.4.3">Added a back-up aka catch incase the Github page got problem again.</li>
-									<li seq="2.7.3.9">I could not live with my own failure. Where did that bring me? Back to <b>music</b>~ ( ‾́ ◡ ‾́ )</li>
-									<li seq="2.7.3.7">Bug fixes, reduce the assembly size by 60%.</li>
-									<li seq="2.7.3.6">Revert some UI components back to early 2.x version due to bugs in Windows 7.</li>
-									<li seq="2.7.3.3">Font fixes and bug-trap fixes for <b>default map</b>, please click <b>"Fetch"</b> to update them.</li>
-									<li seq="2.7.3.1">Added <b>default map</b> as requested! I put some of the map that you guys like most~ (￣▽￣)b</li>
-									<li seq="2.7.2.0">Court tweak black-screen fixed for Tiancity client, the Voice tweak still crashes the game tho, can't really tell if i managed to fix it or not~ ( ; ω ; )</li>
-									<li seq="2.7.1.9">Code optimizations.</li>	
-									<li seq="2.7.1.7">DLC6 bug fixes, default character voice updates.</li>		
-									<li seq="2.7.0.5">Service feature updates (DLC5).</li>
-									<li seq="2.6.0.3">All Voice options will use <b>Language pack</b>'s font, <b>Hidden map</b> bugs fixed (nid reinstall).</li>		
-									<li seq="2.6.0.2">The program is finally compatible with Windows 7, i can die peacefully now~ (つω`｡)</li>	
-									<li seq="2.6.0.0">Restored <b>Web launcher [Kr]</b>. Crashes might happen, if so please report to me~</li>	
-									<li seq="2.5.9.6">DLC3 bug fixes and allow program to use cached patches instead of re-downloading them.</li>	
-									<li seq="2.5.9.3">Removed support for multi-client, program should only work for the very applied client.</li>		
-									<li seq="2.5.9.1">Added support for multi-patch by holding Ctrl and security improvements.</li>	
-									<li seq="2.5.7.7">MC voice changer tweaks and support for importing using URL (beta).</li>
-									<li seq="2.5.3.2">Code optimizations.</li>	
-									<li seq="2.4.9.5">Added <b>"Focust Assist"</b> MC voice. This set will change the entire MC voice to help you timing like blocking shoots. This is my old stuffs but might still be useful~ (´ ∀ ` *)</li>							
-									<li seq="2.4.5.0">Small visual tweaks and ton of bug fixes.</li> 	
-									<li seq="2.4.4.2">Added "removed" map <b>warehouse</b>. This is temporary changes and might be reverted.</li>		
-									<li seq="2.4.3.2">Got a problem on updater, please download and run the installer again for fixes!</li>					
-									<li seq="2.4.3.1">Added <b>Auto Updater</b>. From now on, changelog will <b>no longer include bug-fixes-only updates</b> but feature updates~</li>
-									<li seq="2.3.3.1">Moved some embedded resouces to cloud for faster loading and reduced the assembly size.</li>
-									<li seq="2.2.3.0">Program speed improvements and compatible fixes for newest game version.</li>
-									<li seq="2.2.2.9">Added <b>Settings</b>.</li>
-									<li seq="2.2.2.8">Bug fixes.</li>
-									<li seq="2.2.2.7">Custom Jukebox serious bug fixes.</li>
-									<li seq="2.2.2.5">Bug fixes.</li>
-									<li seq="2.2.2.4">Program is now <b>completely free from false virus detection</b>. (*￣▽￣)b</li>
-									<li seq="2.2.2.2"><b>Added Custom Jukebox</b>~ o(> ω <)o</li>
-									<li seq="2.1.2.1">Bug fixes.</li>
-									<li seq="2.1.2.0">Added <b>Launch</b> button, small visual tweaks.</li>
-									<li seq="2.1.1.7">Now you can interact with the cat, because why not. ( =ノωヽ=)</li>
-									<li seq="2.1.1.5">Bug fixes.</li>
-									<li seq="2.1.1.4">Bug fixes.</li>
-									<li seq="2.1.1.3">Changed repository name. This will make all older versions become unusable.</li>
-									<li seq="2.1.1.2">Gosh i freaking hate Anti Virus programs.</li>
-									<li seq="2.1.1.1">Bug fixes.</li>
-									<li seq="2.1.1.0">Me again fixed a couple of bugs, did a routine tweak update, and made a few other changes that you probably don't care anyway. (¯▿¯)</li>
-									<li seq="1.9.9.9">Why am i still updating this patcher, gosh i wanna kms. (ノ_<。)</li>
-									<li seq="1.9.9.8">Bug fixes, the patcher now can detect whether you are using Taiwanese or Chinese client.</li>
-									<li seq="1.8.8.6">Kekw another serious bug fixes, improved process detecting for multi-client.</li>
-									<li seq="1.9.9.7"><b>A new minimalist-design!</b> (⁄ ⁄>⁄ ▽ ⁄<⁄ ⁄)</li>
-									<li seq="1.8.8.5">Minor visual bug fixes.</li>
-									<li seq="1.8.8.4">Added <b>tour_dlc1</b>~</li>
-									<li seq="1.7.8.3">Moved s_dlc repository location to friend's account (lov u) because no monet for data quota.</li>
-									<li seq="1.7.8.2">Sorries folks QwQ, this update should perma fix the unable to install sound_dlc problem~</li>
-									<li seq="1.7.8.0">Added <b>Services</b> tab, new cutie musik~</li>
-									<li seq="1.6.7.9">Bug fixes.</li>
-									<li seq="1.6.7.8">Bug fixes, added hint for everyone who really don't know how to use... (￣ω￣; )</li>
-									<li seq="1.6.7.7">Bug fixes.</li>
-									<li seq="1.6.7.5">Added <b>takatto_dlc1_sunny</b>.</li>
-									<li seq="1.6.5.4">Updated, increased safetyness and disabled some patches. Added <b>Hacker mode</b> if you know memory writing/hacking stuffs~</li>
-									<li seq="1.6.5.2"><b>Return</b> button is back! Re-tweaked the UI, added Repair button, added ability to uninstall installed tweak_DLC(s), and indeed ton of bug fixes~</li>
-									<li seq="1.6.3.1">Hot fixes, removed Korean launcher~</li>
-									<li seq="1.6.2.0"><b>Huge update!</b> Introducing a new court designed by degenerated me and added Chinese voice pack (unfinished due to many lines and i'm lazy), a little bit software redesign and of course included ton of bug fixes again. (￣ω￣; )</li>
-									<li seq="1.3.2.0">Added new tweaking and patching method that must quiccer~</li>
-									<li seq="1.2.2.0">Bug fixes, file size reduced and yep, a new cutie music from takatt chan~ ☆*:.｡.o(≧▽≦)o.｡.:*☆</li>
-									<li seq="1.2.1.9">Bug fixes.</li>
-									<li seq="1.2.1.7">Added <b>MC Voice Changer</b>, currently supported for Korean and Vietnamese, and ton of bug fixes.</li>
-									<li seq="1.2.0.6">Bug fixes.</li>
-									<li seq="1.2.0.5">Tweaking now available but not so much ;- ; still in development for other tweaks~</li>
-									<li seq="1.1.0.4">Now program can auto check for newest version~</li>
-									<li seq="1.0.0.3">Bug fixes and speedy performance improvements. And a new cutie look~</li>
-									<li seq="1.0.0.2">Bug fixes.</li>
-									<li seq="1.0.0.1">Added support for standalone patches.</li>
-									<li seq="1.0.0.0"><b>First initial release</b>.</li>
-								</div>
-						</ol>
-						</div>
-					
-						<div id="tab4" class="tab-pane fade " role="tabpanel" aria-labelledby="tab4">
-						<ul>	
-							<li>takattoFS2 Patcher was made to easily download and apply stuffs (called DLCs or patches) into your FreeStyle 2 Client using the files from your client, it also offers some QOL tweaks.</li>
-							<li>The stuffs are downloaded from my "work collections" stored on cloud services.</li>
-							<li>From version 1.2.0.5, takattoFS2 Patcher now offers a function called "Tweaks" to automatically apply DLCs and the original files are backed up, they will be revivified after the client closes.</li>
-							<li>takattoFS2 Patcher requires the game FreeStyle 2 to be installed, all servers supported.</li>
-						</ul>
-						
-					</div>
-						
-						</div>
-					
-						
-						
-				</div>
-			</div>
-			<br/>
-			<br/>
-			<div class="top-content" id="howtouse">
-				<div class="list-title howtouse">
-					<h3 id="title">How To Use</h3> </div>
-			</div>
-			<h1 class="title preserve-whitespace e2e-site-logo-text"></h1>
-			<div id="howToUseContent" class="tab-content">
-				<div id="jp_server" class="tab-pane fade show active" role="tabpanel" aria-labelledby="jp_tab">
-					<ul id="howToUseJpTabs" class="nav nav-tabs" role="tablist">
-						<li class="nav-item"><a id="jp_default_tab" class="nav-link active" href="#tab_patch" data-toggle="tab" aria-controls="tab_patch" aria-selected="true">Patching</a></li>
-						<li class="nav-item"><a id="jp_login_tab" class="nav-link" href="#tab_tweak" data-toggle="tab" aria-controls="tab_tweak" aria-selected="false">Tweaking</a></li>
-						<li class="nav-item"><a id="jp_lmao_tab" class="nav-link" href="#tab_translate" data-toggle="tab" aria-controls="tab_translate" aria-selected="false">Translating</a></li>
-						<li class="nav-item"><a id="jp_lmeo_tab" class="nav-link" href="#tab_jukebox" data-toggle="tab" aria-controls="tab_jukebox" aria-selected="false">Jukebox Music</a></li>
-						<li class="nav-item"><a id="jp_serv_tab" class="nav-link" href="#tab_serv" data-toggle="tab" aria-controls="tab_serv" aria-selected="false">Service</a></li>
-					</ul>
-					<div id="howToUseJpContent" class="tab-content">
-						<div id="tab_patch" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tab_patch">
-							<ol class="card-text" type="1">
-								<li>Patching is the last thing you should do, look for tweaks first!</li>
-								<li>Make sure the game is not running yet.</li>
-								<li>Choose the patch and press <b>"Patch it"</b>.</li>
-								<li>A message says "waiting for games" will show up.</li>
-								<li>Start the game and enjoy~</li>
-								<li>After the patcher succesfully patched the patch, you can manual patch another patches you want, note that you have to do it quickly before the game takeover the process.</li>
-							</ol>
-						</div>
-						<div id="tab_tweak" class="tab-pane fade" role="tabpanel" aria-labelledby="tab_tweak">
-							<ol class="card-text" type="1">
-								<li>For map tweaks, you need to install the tweak dlc(s) and click on the available options, each option has 1-3 map types and you can only choose one! Can be toggled anytime, also remember that you will have to <b>enter game or load a replay</b> in order to see the changes!</li>
-								<li>For MC voice change, please download and install <b>DLC6</b> first.</li>
-								<li>Make sure the game is not running and customize the voice language you want.</li>
-								<li>Start the game and enjoy! Tweaks will automatically apply to the game, you don't have to do anything else but leaving the program on!</li>
-								<li>You will need to close the game in order to close the patcher while tweaks are applying.</li>
-							</ol>
-						</div>
-						<div id="tab_translate" class="tab-pane fade" role="tabpanel" aria-labelledby="tab_translate">
-							<ol class="card-text" type="1">
-								<li>To translate the game into your desired language, please install the <b>DLC6</b> and <b>[STD] Language Pack</b>.</li>
-								<li>Choose either one between options in voice changer except [DEFAULT].</li>
-								<li>Choose your language in <b>"Game Language"</b>.</li>
-								<li>Start the game and enjoy~</li>
-								<li>If there are new version on <b>[STD] Language Pack</b>, kindly update it to receive lastest translation!</li>	
-								<li>From version 2.6.0.3, an extra clear font will also be shipped with <b>[STD] Language Pack</b>!</li>
-							</ol>
-						</div>
-						<div id="tab_jukebox" class="tab-pane fade" role="tabpanel" aria-labelledby="tab_jukebox">
-							<ol class="card-text" type="1">
-								<li>To use custome Jukebox or custom in-game music, please install the <b>DLC3</b>.</li>
-								<li>Hit on <b>"Manage music"</b> button.</li>
-								<li>There will be some music that i set as default, to add your song, click on <b>"Select music"</b>.</li>
-								<li>Choose your song, keep in mind the game only supports mp3 format!</li>
-								<li>Change music infomation to be shown in the game, or just leave them alone.</li>
-								<li>To delete a music from list, just select the music you want and hit <b>"Delete -"</b>.</li>
-								<li>Start the game and enjoy~</li>
-							</ol>
-						</div>
-						<div id="tab_serv" class="tab-pane fade" role="tabpanel" aria-labelledby="tab_serv">
-							<ol class="card-text" type="1">
-								<li>Service offers premium tweaks that is limitted for some users.</li>
-								<li>To unlock a service, please head to the about tab and type the <b>unlock code</b> in the textarea.</li>
-								<li>Enable any unlocked tweak you like.</li>
-								<li>Start the game and enjoy~</li>
-								<li>As of today, 1st June, i present everyone the beta DLC5 code! Here you can try it: <b>pleznotouchmycatto</b>!</li>
-							</ol>
-						</div>
-					</div>
-				</div>
-			</div>
-			<br/>
-			<br/>
-			<div class="top-content" id="faq">
-				<div class="list-title faq">
-					<h3 id="title">Frequently Asked Question</h3> </div>
-			</div>
-			<h1 class="title preserve-whitespace e2e-site-logo-text"></h1>
-			<div class="card mb-3">
-				<div class="card-body">
-					<h5 class="card-title">For any error when running the patcher, try these fixes first:</h5>
-					<ul class="card-text">
-						<li style="color: #e91e63;">Make sure you have the requirements to install or manually install <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=863262"><b>Microsoft .NET Framework 4.7.2</b>~</a></li>			
-						<li>Add takattoFS2 Patcher to your anti-virus exception list as they usually slow down the program.</li>
-						<li>Reset Internet Explorer settings, Internet Explorer advanced settings and Internet Explorer security zones. Those can be found in Control Panel -&gt; Internet Options.</li>
-						<li>Disable <a id="link_setup" class="card-link" target="_blank" href="https://cdn.discordapp.com/attachments/783631315688751106/839529509710463037/pic.png"><b>Windows's custom scaling</b></a>, as it tends to make program visually broken.</li>
-						<li>If you encountered <b>Unhandled exception</b>, please take a note or screenshoot and report to me (it's important!) so i can work on a fix!</ul>
-					<br>
-					<br>					
-					<h5 class="card-title">Is it safe? Do you collect user's data?</h5>
-					<p>This is not a hack tool, it customizes the game like changing map, changing music and doing absolutely harmless things,... If you are looking for hacks/cheats then you should not be here. And, i respect your privacy, the program is not designed to collect any infomation from your computer, however i have the rights to cancel any use of the program anytime if needed.</p>
-					<br>
-					<h5 class="card-title">What is WIP/STD/OB?</h5>
-					<p>WIP stands for "Work in process". STD stands for "Standalone", patches marked as standalone no need to patch everytime you run the game. OB stands for "Obsolete", patches marked as obselete are no longer working or need to do extra steps in order to make them work.</p>
-					<br>
-					<h5 class="card-title">Can i contribute or make my own stuffs?</h5>
-					<p>Yes chu can, you can contact me on discord server! <a id="link_setup" class="card-link" target="_blank" href="https://discord.gg/yJmKf7PDzS"><b>https://discord.gg/yJmKf7PDzS</b></a></p>					
-		
-			</div>
-		</div>		
-		<br/>
-		<br/>
-		<div class="footeriteake">Copyright (C) 2021 Takatto, Tran Duy</div>
-	</div>
-</body>
+                        <div id="tab2" class="tab-pane fade" role="tabpanel" aria-labelledby="tab2">
+                            <ol>
+                                <a id="link_setup" class="card-link" target="_blank" href="https://www.virustotal.com/gui/file/7d36d47c6a3af05b3317e7c63f016d93be0c08583c94ac5882eb57cd92fdebc3/detection">v2.7.8.2 Executable</a>
+                                <a id="link_setup" class="card-link" target="_blank" href="https://www.virustotal.com/gui/file/2dfe93b4806c8796bd612d4c05d62dd6ff9ae09821c38adee73f8d8afad7bcf8/detection">Installer Executable</a>
+                            </ol>
+                        </div>
+                        <div id="tab3" class="tab-pane fade active show" role="tabpanel" aria-labelledby="tab3">
+                            <ol>
+                                <li seq="2.7.8.2"><b>Final release!</b> Hopefully no more bugs~ ｡ﾟ(TヮT)ﾟ｡</li>
+                                <li seq="2.7.7.2">Crashes fixed on Tiancity client! __〆(￣▽￣ )</li>
+                                <li seq="2.7.7.1"><b>Character Voice</b> (beta) is now open to use~ (￣、￣〃)</li>
+                                <li seq="2.7.5.6">New algorithm for tweakings.</li>
+                                <br />
+                                <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseChangelog" aria-expanded="false" aria-controls="collapseChangelog">Show more</button>
+                                <a id="link_setup" class="card-link" target="_blank" href="https://cdn.discordapp.com/attachments/638745174939402246/848950398051287110/uwu.png" style="color: #ab0000 !important;">
+                                    [Project is partially discontinued]
+                                </a>
+                                <div class="mt-1 collapse" id="collapseChangelog" style="">
+                                    <div id="accordionChangelog">
+                                        <li seq="2.7.4.3">Added a back-up aka catch incase the Github page got problem again.</li>
+                                        <li seq="2.7.3.9">I could not live with my own failure. Where did that bring me? Back to <b>music</b>~ ( ‾́ ◡ ‾́ )</li>
+                                        <li seq="2.7.3.7">Bug fixes, reduce the assembly size by 60%.</li>
+                                        <li seq="2.7.3.6">Revert some UI components back to early 2.x version due to bugs in Windows 7.</li>
+                                        <li seq="2.7.3.3">Font fixes and bug-trap fixes for <b>default map</b>, please click <b>"Fetch"</b> to update them.</li>
+                                        <li seq="2.7.3.1">Added <b>default map</b> as requested! I put some of the map that you guys like most~ (￣▽￣)b</li>
+                                        <li seq="2.7.2.0">Court tweak black-screen fixed for Tiancity client, the Voice tweak still crashes the game tho, can't really tell if i managed to fix it or not~ ( ; ω ; )</li>
+                                        <li seq="2.7.1.9">Code optimizations.</li>
+                                        <li seq="2.7.1.7">DLC6 bug fixes, default character voice updates.</li>
+                                        <li seq="2.7.0.5">Service feature updates (DLC5).</li>
+                                        <li seq="2.6.0.3">All Voice options will use <b>Language pack</b>'s font, <b>Hidden map</b> bugs fixed (nid reinstall).</li>
+                                        <li seq="2.6.0.2">The program is finally compatible with Windows 7, i can die peacefully now~ (つω`｡)</li>
+                                        <li seq="2.6.0.0">Restored <b>Web launcher [Kr]</b>. Crashes might happen, if so please report to me~</li>
+                                        <li seq="2.5.9.6">DLC3 bug fixes and allow program to use cached patches instead of re-downloading them.</li>
+                                        <li seq="2.5.9.3">Removed support for multi-client, program should only work for the very applied client.</li>
+                                        <li seq="2.5.9.1">Added support for multi-patch by holding Ctrl and security improvements.</li>
+                                        <li seq="2.5.7.7">MC voice changer tweaks and support for importing using URL (beta).</li>
+                                        <li seq="2.5.3.2">Code optimizations.</li>
+                                        <li seq="2.4.9.5">
+                                            Added <b>"Focust Assist"</b> MC voice. This set will change the entire MC voice to help you timing like blocking shoots. This is my old stuffs but might still be useful~ (´ ∀ ` *)
+                                        </li>
+                                        <li seq="2.4.5.0">Small visual tweaks and ton of bug fixes.</li>
+                                        <li seq="2.4.4.2">Added "removed" map <b>warehouse</b>. This is temporary changes and might be reverted.</li>
+                                        <li seq="2.4.3.2">Got a problem on updater, please download and run the installer again for fixes!</li>
+                                        <li seq="2.4.3.1">Added <b>Auto Updater</b>. From now on, changelog will <b>no longer include bug-fixes-only updates</b> but feature updates~</li>
+                                        <li seq="2.3.3.1">Moved some embedded resouces to cloud for faster loading and reduced the assembly size.</li>
+                                        <li seq="2.2.3.0">Program speed improvements and compatible fixes for newest game version.</li>
+                                        <li seq="2.2.2.9">Added <b>Settings</b>.</li>
+                                        <li seq="2.2.2.8">Bug fixes.</li>
+                                        <li seq="2.2.2.7">Custom Jukebox serious bug fixes.</li>
+                                        <li seq="2.2.2.5">Bug fixes.</li>
+                                        <li seq="2.2.2.4">Program is now <b>completely free from false virus detection</b>. (*￣▽￣)b</li>
+                                        <li seq="2.2.2.2"><b>Added Custom Jukebox</b>~ o(> ω <)o</li>
+                                        <li seq="2.1.2.1">Bug fixes.</li>
+                                        <li seq="2.1.2.0">Added <b>Launch</b> button, small visual tweaks.</li>
+                                        <li seq="2.1.1.7">Now you can interact with the cat, because why not. ( =ノωヽ=)</li>
+                                        <li seq="2.1.1.5">Bug fixes.</li>
+                                        <li seq="2.1.1.4">Bug fixes.</li>
+                                        <li seq="2.1.1.3">Changed repository name. This will make all older versions become unusable.</li>
+                                        <li seq="2.1.1.2">Gosh i freaking hate Anti Virus programs.</li>
+                                        <li seq="2.1.1.1">Bug fixes.</li>
+                                        <li seq="2.1.1.0">Me again fixed a couple of bugs, did a routine tweak update, and made a few other changes that you probably don't care anyway. (¯▿¯)</li>
+                                        <li seq="1.9.9.9">Why am i still updating this patcher, gosh i wanna kms. (ノ_<。)</li>
+                                        <li seq="1.9.9.8">Bug fixes, the patcher now can detect whether you are using Taiwanese or Chinese client.</li>
+                                        <li seq="1.8.8.6">Kekw another serious bug fixes, improved process detecting for multi-client.</li>
+                                        <li seq="1.9.9.7"><b>A new minimalist-design!</b> (⁄ ⁄>⁄ ▽ ⁄<⁄ ⁄)</li>
+                                        <li seq="1.8.8.5">Minor visual bug fixes.</li>
+                                        <li seq="1.8.8.4">Added <b>tour_dlc1</b>~</li>
+                                        <li seq="1.7.8.3">Moved s_dlc repository location to friend's account (lov u) because no monet for data quota.</li>
+                                        <li seq="1.7.8.2">Sorries folks QwQ, this update should perma fix the unable to install sound_dlc problem~</li>
+                                        <li seq="1.7.8.0">Added <b>Services</b> tab, new cutie musik~</li>
+                                        <li seq="1.6.7.9">Bug fixes.</li>
+                                        <li seq="1.6.7.8">Bug fixes, added hint for everyone who really don't know how to use... (￣ω￣; )</li>
+                                        <li seq="1.6.7.7">Bug fixes.</li>
+                                        <li seq="1.6.7.5">Added <b>takatto_dlc1_sunny</b>.</li>
+                                        <li seq="1.6.5.4">Updated, increased safetyness and disabled some patches. Added <b>Hacker mode</b> if you know memory writing/hacking stuffs~</li>
+                                        <li seq="1.6.5.2"><b>Return</b> button is back! Re-tweaked the UI, added Repair button, added ability to uninstall installed tweak_DLC(s), and indeed ton of bug fixes~</li>
+                                        <li seq="1.6.3.1">Hot fixes, removed Korean launcher~</li>
+                                        <li seq="1.6.2.0">
+                                            <b>Huge update!</b> Introducing a new court designed by degenerated me and added Chinese voice pack (unfinished due to many lines and i'm lazy), a little bit software redesign and of course
+                                            included ton of bug fixes again. (￣ω￣; )
+                                        </li>
+                                        <li seq="1.3.2.0">Added new tweaking and patching method that must quiccer~</li>
+                                        <li seq="1.2.2.0">Bug fixes, file size reduced and yep, a new cutie music from takatt chan~ ☆*:.｡.o(≧▽≦)o.｡.:*☆</li>
+                                        <li seq="1.2.1.9">Bug fixes.</li>
+                                        <li seq="1.2.1.7">Added <b>MC Voice Changer</b>, currently supported for Korean and Vietnamese, and ton of bug fixes.</li>
+                                        <li seq="1.2.0.6">Bug fixes.</li>
+                                        <li seq="1.2.0.5">Tweaking now available but not so much ;- ; still in development for other tweaks~</li>
+                                        <li seq="1.1.0.4">Now program can auto check for newest version~</li>
+                                        <li seq="1.0.0.3">Bug fixes and speedy performance improvements. And a new cutie look~</li>
+                                        <li seq="1.0.0.2">Bug fixes.</li>
+                                        <li seq="1.0.0.1">Added support for standalone patches.</li>
+                                        <li seq="1.0.0.0"><b>First initial release</b>.</li>
+                                    </div>
+                                </div>
+                            </ol>
+                        </div>
+                        <div id="tab4" class="tab-pane fade" role="tabpanel" aria-labelledby="tab4">
+                            <p style="padding: 0 2rem 0 2rem;">
+                                <b>takattoFS2 Patcher</b> was made to easily download and apply stuffs (called DLCs or patches) into your FreeStyle 2 Client using the files from your client, it also offers some QOL tweaks.
+                            </p>
+                            <p style="padding: 0 2rem 0 2rem;">The stuffs are downloaded from my "work collections" stored on cloud services.</p>
+                            <p style="padding: 0 2rem 0 2rem;">
+                                From version 1.2.0.5, takattoFS2 Patcher now offers a function called "Tweaks" to automatically apply DLCs and the original files are backed up, they will be revivified after the client closes.
+                            </p>
+                            <p style="padding: 0 2rem 0 2rem;">takattoFS2 Patcher requires the game FreeStyle 2 to be installed, all servers supported.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="top-content" id="howtouse">
+                <div class="list-title howtouse">
+                    <h3 id="title">How To Use</h3>
+                </div>
+            </div>
+            <h1 class="title preserve-whitespace e2e-site-logo-text"></h1>
+            <div id="howToUseContent" class="tab-content">
+                <div id="jp_server" class="tab-pane fade show active" role="tabpanel" aria-labelledby="jp_tab">
+                    <ul id="howToUseJpTabs" class="nav nav-tabs" role="tablist">
+                        <li class="nav-item"><a id="jp_default_tab" class="nav-link active" href="#tab_patch" data-toggle="tab" aria-controls="tab_patch" aria-selected="true">Patching</a></li>
+                        <li class="nav-item"><a id="jp_login_tab" class="nav-link" href="#tab_tweak" data-toggle="tab" aria-controls="tab_tweak" aria-selected="false">Tweaking</a></li>
+                        <li class="nav-item"><a id="jp_lmao_tab" class="nav-link" href="#tab_translate" data-toggle="tab" aria-controls="tab_translate" aria-selected="false">Translating</a></li>
+                        <li class="nav-item"><a id="jp_lmeo_tab" class="nav-link" href="#tab_jukebox" data-toggle="tab" aria-controls="tab_jukebox" aria-selected="false">Jukebox Music</a></li>
+                        <li class="nav-item"><a id="jp_serv_tab" class="nav-link" href="#tab_serv" data-toggle="tab" aria-controls="tab_serv" aria-selected="false">Service</a></li>
+                    </ul>
+                    <div id="howToUseJpContent" class="tab-content">
+                        <div id="tab_patch" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tab_patch">
+                            <ol class="card-text" type="1">
+                                <li>Patching is the last thing you should do, look for tweaks first!</li>
+                                <li>Make sure the game is not running yet.</li>
+                                <li>Choose the patch and press <b>"Patch it"</b>.</li>
+                                <li>A message says "waiting for games" will show up.</li>
+                                <li>Start the game and enjoy~</li>
+                                <li>After the patcher succesfully patched the patch, you can manual patch another patches you want, note that you have to do it quickly before the game takeover the process.</li>
+                            </ol>
+                        </div>
+                        <div id="tab_tweak" class="tab-pane fade" role="tabpanel" aria-labelledby="tab_tweak">
+                            <ol class="card-text" type="1">
+                                <li>
+                                    For map tweaks, you need to install the tweak dlc(s) and click on the available options, each option has 1-3 map types and you can only choose one! Can be toggled anytime, also remember that you will have
+                                    to <b>enter game or load a replay</b> in order to see the changes!
+                                </li>
+                                <li>For MC voice change, please download and install <b>DLC6</b> first.</li>
+                                <li>Make sure the game is not running and customize the voice language you want.</li>
+                                <li>Start the game and enjoy! Tweaks will automatically apply to the game, you don't have to do anything else but leaving the program on!</li>
+                                <li>You will need to close the game in order to close the patcher while tweaks are applying.</li>
+                            </ol>
+                        </div>
+                        <div id="tab_translate" class="tab-pane fade" role="tabpanel" aria-labelledby="tab_translate">
+                            <ol class="card-text" type="1">
+                                <li>To translate the game into your desired language, please install the <b>DLC6</b> and <b>[STD] Language Pack</b>.</li>
+                                <li>Choose either one between options in voice changer except [DEFAULT].</li>
+                                <li>Choose your language in <b>"Game Language"</b>.</li>
+                                <li>Start the game and enjoy~</li>
+                                <li>If there are new version on <b>[STD] Language Pack</b>, kindly update it to receive lastest translation!</li>
+                                <li>From version 2.6.0.3, an extra clear font will also be shipped with <b>[STD] Language Pack</b>!</li>
+                            </ol>
+                        </div>
+                        <div id="tab_jukebox" class="tab-pane fade" role="tabpanel" aria-labelledby="tab_jukebox">
+                            <ol class="card-text" type="1">
+                                <li>To use custome Jukebox or custom in-game music, please install the <b>DLC3</b>.</li>
+                                <li>Hit on <b>"Manage music"</b> button.</li>
+                                <li>There will be some music that i set as default, to add your song, click on <b>"Select music"</b>.</li>
+                                <li>Choose your song, keep in mind the game only supports mp3 format!</li>
+                                <li>Change music infomation to be shown in the game, or just leave them alone.</li>
+                                <li>To delete a music from list, just select the music you want and hit <b>"Delete -"</b>.</li>
+                                <li>Start the game and enjoy~</li>
+                            </ol>
+                        </div>
+                        <div id="tab_serv" class="tab-pane fade" role="tabpanel" aria-labelledby="tab_serv">
+                            <ol class="card-text" type="1">
+                                <li>Service offers premium tweaks that is limitted for some users.</li>
+                                <li>To unlock a service, please head to the about tab and type the <b>unlock code</b> in the textarea.</li>
+                                <li>Enable any unlocked tweak you like.</li>
+                                <li>Start the game and enjoy~</li>
+                                <li>As of today, 1st June, i present everyone the beta DLC5 code! Here you can try it: <b>pleznotouchmycatto</b>!</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="top-content" id="faq">
+                <div class="list-title faq">
+                    <h3 id="title">Frequently Asked Question</h3>
+                </div>
+            </div>
+            <h1 class="title preserve-whitespace e2e-site-logo-text"></h1>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">For any error when running the patcher, try these fixes first:</h5>
+                    <ul class="card-text">
+                        <li style="color: #e91e63;">
+                            Make sure you have the requirements to install or manually install <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=863262"><b>Microsoft .NET Framework 4.7.2</b>~</a>
+                        </li>
+                        <li>Add takattoFS2 Patcher to your anti-virus exception list as they usually slow down the program.</li>
+                        <li>Reset Internet Explorer settings, Internet Explorer advanced settings and Internet Explorer security zones. Those can be found in Control Panel -&gt; Internet Options.</li>
+                        <li>
+                            Disable <a id="link_setup" class="card-link" target="_blank" href="https://cdn.discordapp.com/attachments/783631315688751106/839529509710463037/pic.png"><b>Windows's custom scaling</b></a>, as it tends to make
+                            program visually broken.
+                        </li>
+                        <li>If you encountered <b>Unhandled exception</b>, please take a note or screenshoot and report to me (it's important!) so i can work on a fix!</li>
+                    </ul>
 
+                    <br />
+                    <br />
+                    <h5 class="card-title">Is it safe? Do you collect user's data?</h5>
+                    <p>
+                        This is not a hack tool, it customizes the game like changing map, changing music and doing absolutely harmless things,... If you are looking for hacks/cheats then you should not be here. And, i respect your privacy,
+                        the program is not designed to collect any infomation from your computer, however i have the rights to cancel any use of the program anytime if needed.
+                    </p>
+                    <br />
+                    <h5 class="card-title">What is WIP/STD/OB?</h5>
+                    <p>
+                        WIP stands for "Work in process". STD stands for "Standalone", patches marked as standalone no need to patch everytime you run the game. OB stands for "Obsolete", patches marked as obselete are no longer working or
+                        need to do extra steps in order to make them work.
+                    </p>
+                    <br />
+                    <h5 class="card-title">Can i contribute or make my own stuffs?</h5>
+                    <p>
+                        Yes chu can, you can contact me on discord server! <a id="link_setup" class="card-link" target="_blank" href="https://discord.gg/yJmKf7PDzS"><b>https://discord.gg/yJmKf7PDzS</b></a>
+                    </p>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="footeriteake">Copyright (C) 2021 Takatto, Tran Duy</div>
+        </div>
+    </body>
 </html>
