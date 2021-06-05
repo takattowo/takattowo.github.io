@@ -50,9 +50,10 @@
 		<div id="howToUseContent" class="tab-content">
 			<div id="jp_server" class="tab-pane fade show active" role="tabpanel" aria-labelledby="jp_tab">
 				<ul id="howToUseJpTabs" class="nav nav-tabs" role="tablist">
-					<li class="nav-item"><a id="jp_default_tab2" class="nav-link" href="#tab1" data-toggle="tab" aria-controls="tab1" aria-selected="true">Download</a></li>
-					<li class="nav-item"><a id="jp_login_tab2" class="nav-link" href="#tab2" data-toggle="tab" aria-controls="tab2" aria-selected="false">Virustotal</a></li>
-					<li class="nav-item"><a id="jp_login_tab22" class="nav-link active show" href="#tab3" data-toggle="tab" aria-controls="tab3" aria-selected="false">Changelog</a></li>
+					<li class="nav-item"><a class="nav-link" href="#tab1" data-toggle="tab" aria-controls="tab1" aria-selected="false">Download</a></li>
+					<li class="nav-item"><a class="nav-link" href="#tab2" data-toggle="tab" aria-controls="tab2" aria-selected="false">Virustotal</a></li>
+					<li class="nav-item"><a class="nav-link active show" href="#tab3" data-toggle="tab" aria-controls="tab3" aria-selected="false">Changelog</a></li>	
+					<li class="nav-item"><a class="nav-link" href="#tab4" data-toggle="tab" aria-controls="tab4" aria-selected="false">Virustotal</a></li>
 				</ul>
 				
 				<script>
@@ -158,6 +159,15 @@
 						</ol>
 						</div>
 					</div>
+					<div id="tab4" class="tab-pane fade " role="tabpanel" aria-labelledby="tab4">
+						<ol>	
+							<li>takattoFS2 Patcher was made to easily download and apply stuffs (called DLCs or patches) into your FreeStyle 2 Client using the files from your client, it also offers some QOL tweaks.</li>
+							<li>The stuffs are downloaded from my "work collections" stored on cloud services.</li>
+							<li>From version 1.2.0.5, takattoFS2 Patcher now offers a function called "Tweaks" to automatically apply DLCs and the original files are backed up, they will be revivified after the client closes.</li>
+							<li>takattoFS2 Patcher requires the game FreeStyle 2 to be installed, all servers supported.</li>
+						</ol>
+						</div>
+					</div>
 				</div>
 			</div>
 			<br/>
@@ -240,11 +250,11 @@
 				<div class="card-body">
 					<h5 class="card-title">For any error when running the patcher, try these fixes first:</h5>
 					<ul class="card-text">
-						<li color="red">Make sure you have the requirements to install or manually install <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=863262"><b>Microsoft .NET Framework 4.7.2</b>~</a></li>			
+						<li style="color: #e91e63;">Make sure you have the requirements to install or manually install <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=863262"><b>Microsoft .NET Framework 4.7.2</b>~</a></li>			
 						<li>Add takattoFS2 Patcher to your anti-virus exception list as they usually slow down the program.</li>
 						<li>Reset Internet Explorer settings, Internet Explorer advanced settings and Internet Explorer security zones. Those can be found in Control Panel -&gt; Internet Options.</li>
-						<li>Disable <a id="link_setup" class="card-link" target="_blank" href="https://cdn.discordapp.com/attachments/783631315688751106/839529509710463037/pic.png"><b>Windows's custom scaling</b></a>, as it tends to make program broken.</li>
-						<li>If you encountered <b>Unhandled exception</b>, please take a note or screenshoot and report to me (it's important!) and then restart the program.</ul>
+						<li>Disable <a id="link_setup" class="card-link" target="_blank" href="https://cdn.discordapp.com/attachments/783631315688751106/839529509710463037/pic.png"><b>Windows's custom scaling</b></a>, as it tends to make program visually broken.</li>
+						<li>If you encountered <b>Unhandled exception</b>, please take a note or screenshoot and report to me (it's important!) so i can work on a fix!</ul>
 					<br>
 					<br>					
 					<h5 class="card-title">Is it safe? Do you collect user's data?</h5>
@@ -258,7 +268,6 @@
 		
 			</div>
 		</div>		
-
 		<br/>
 		<br/>
 		<div class="footeriteake">Copyright (C) 2021 Takatto, Tran Duy</div>
