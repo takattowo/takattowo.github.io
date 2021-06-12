@@ -2,6 +2,11 @@ img {
   max-width: 100%;
 }
 
+@font-face {
+  font-family: "Ambit-Regular";
+  src: url(/fs2/assets/Ambit-Regular.otf);
+}
+
 .card-title {
   font-weight: 700!important;
 }
@@ -20,7 +25,7 @@ img {
 
 body {
   margin: 0!important;
-  font-family: monospace !important;
+  font-family: "Ambit-Regular", "Verdana", "Arial Black", "Arial", "sans-serif" !important;
   font-size: 16px !important;
   background-color: #eeeeee !important;
 }
