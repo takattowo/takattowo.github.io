@@ -20,7 +20,9 @@ img {
 }
 
 .tab-content.firstw ol li:before {
-  content: attr(seq) " - ";
+  content: attr(seq) "  ";
+  font-family: monospace!important;
+  color: #855362;
 }
 
 body {
