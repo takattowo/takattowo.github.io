@@ -13,10 +13,10 @@ img {
 
 
 .tab-content.firstw ol {
-  list-style: none;
-  text-indent: -88px;
-  margin-left: 88px;
-  padding-right: 1rem;
+    list-style: none;
+    text-indent: -80px;
+    margin-left: 80px;
+    padding-right: 1rem;
 }
 
 .tab-content.firstw ol li:before {
