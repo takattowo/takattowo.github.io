@@ -67,6 +67,46 @@ body {
 
 .site-header {
   align-items: center;
+  max-width: 1060px;
+  background: transparent;
+  /* background-image: url(/fs2/assets/banner7s_t.png); */
+  background-size: cover;
+  border-radius: 8px 8px 0 0;
+  /* background-color: #323232; */
+  margin: 0 auto;
+  height: 59px;
+  padding-bottom: 0px;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 0px;
+  position: relative;
+  z-index: 3;
+  right: 0;
+  top: 0;
+  display: flex;
+}
+
+.site-header2 {
+  max-width: 1060px;
+  background-image: url(/fs2/assets/bannerb1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 8px 8px 0 0;
+  background-color: white;
+  margin: 18px auto 0 auto;
+  height: 359px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  position: relative;
+  z-index: 3;
+  right: 0;
+  top: 0;
+  display: flex;
+}
+
+
+/*.site-header {
+  align-items: center;
   max-width: 1060px;    
   background-image: url(/fs2/assets/banner7s_t.png);
   background-size: cover;
@@ -83,7 +123,7 @@ body {
   right: 0;
   top: 0;
   display: flex;
-}
+}*/
 
 #bod {
   max-width: 1060px;
