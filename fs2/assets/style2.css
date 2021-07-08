@@ -47,8 +47,8 @@ body {
 
 .btn-primary {
     color: #fff;
-    background-color: #17449f;
-    border-color: #17449f;
+    background-color: #17449f!important;
+    border-color: #17449f!important;
 }
 
 #howToUseJpContent,
@@ -271,7 +271,7 @@ nav .project-title a {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  text-shadow: -1px -1px 0 #663333, 1px -1px 0 #663333, -1px 1px 0 #663333, 1px 1px 0 #663333, 0 -2px 0 #663333, 0 2px 0 #663333, -2px 0 0 #663333, 2px 0 0 #663333;
+  text-shadow: -1px -1px 0 #275fb5, 1px -1px 0 #275fb5, -1px 1px 0 #275fb5, 1px 1px 0 #275fb5, 0 -2px 0 #275fb5, 0 2px 0 #275fb5, -2px 0 0 #275fb5, 2px 0 0 #275fb5;
   line-height: 24px;
 }
 
