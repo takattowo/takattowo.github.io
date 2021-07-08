@@ -29,7 +29,7 @@ body {
   margin: 0!important;
   font-family: "Ambit-Regular", "Verdana", "Arial Black", "Arial", "sans-serif" !important;
   font-size: 16px !important;
-  background-color: #eff5ff !important;
+  background-color: #dee3ec !important;
   color: #2e4f6f!important;
 }
 
@@ -379,10 +379,6 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-body {
-  margin: 0;
 }
 
 html {
