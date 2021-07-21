@@ -87,7 +87,7 @@ body {
 }
 
 .site-header2 {
-  max-width: 1060px;
+  width: 1060px;
   background-image: url(/fs2/assets/bannerb2.png);
   background-size: contain;
   background-repeat: no-repeat;
