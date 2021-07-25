@@ -11,6 +11,9 @@ img {
   font-weight: 700!important;
 }
 
+ol.card-text {
+    padding-right: 2rem;
+}
 
 .tab-content.firstw ol {
     list-style: none;
@@ -156,11 +159,13 @@ body {
   margin: 0;
   max-width: 100%;
 }
+
 .tab-content,
 .card.mb-3 {
   clear: both;
   max-width: 95%;
   margin: auto;
+  text-align: justify;
 }
 
 .top-content {
