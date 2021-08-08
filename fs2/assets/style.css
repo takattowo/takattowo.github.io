@@ -56,7 +56,7 @@ body {
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active,
 .card-body {
-  background: #ffffff !important;
+  background: #ffeceb  !important;
 }
 
 .nav-tabs .nav-item.show .nav-link,
@@ -65,7 +65,7 @@ body {
     1px 1px 0 #663333, 0 -2px 0 #663333, 0 2px 0 #663333, -2px 0 0 #663333,
     2px 0 0 #663333;
   color: white !important;
-  /* border-bottom: 1px solid #f7f0f5 !important; */
+  border-bottom: 1px solid #ffeceb !important;
 }
 
 .site-header {
