@@ -90,7 +90,7 @@ body {
 }
 
 .site-header2 {
-  width: 1060px;
+  max-width: 1060px;
   background-image: url(/fs2/assets/bannerb2.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -366,6 +366,14 @@ ol.card-text li {
 
 .pf-nav-social {
   width: 100%;
+}
+
+@media only screen and (hover: none) and (pointer: coarse){
+
+body {
+    font-size: 19px !important;
+}
+
 }
 
 a {
