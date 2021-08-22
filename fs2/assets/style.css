@@ -88,23 +88,23 @@ body {
   top: 0;
   display: flex;
 }
-
 .site-header2 {
-  max-width: 1060px;
-  background-image: url(/fs2/assets/bannerb2.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 8px 8px 0 0;
-  background-color: #fbfbfb;
-  margin: 18px auto 0 auto;
-  height: 359px;
-  padding-bottom: 0px;
-  padding-top: 0px;
-  position: relative;
-  z-index: 3;
-  right: 0;
-  top: 0;
-  display: flex;
+    max-width: 1060px;
+    min-width: fit-content;
+    background-image: url(/fs2/assets/bannerb2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 8px 8px 0 0;
+    background-color: #fbfbfb;
+    margin: 18px auto 0 auto;
+    height: 359px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    position: relative;
+    z-index: 3;
+    right: 0;
+    top: 0;
+    display: flex;
 }
 
 
@@ -374,6 +374,15 @@ body {
     font-size: 19px !important;
 }
 
+  ul#howToUseJpTabs {
+    display: grid;
+}
+  
+  .nav-tabs .nav-link {
+    border-color:transparent!important;
+    border-radius:0!important;
+  }
+  
 }
 
 a {
