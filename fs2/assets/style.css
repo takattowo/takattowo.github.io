@@ -71,6 +71,7 @@ body {
 .site-header {
   align-items: center;
   max-width: 1060px;
+  width: -webkit-fill-available;
   background: transparent;
   /* background-image: url(/fs2/assets/banner7s_t.png); */
   background-size: cover;
@@ -256,7 +257,7 @@ nav {
   text-align: left;
   float: left;
   max-width: 100%;
-  width: 30%;
+  width: 100%;
 }
 
 .cover.cover-normal {
@@ -371,8 +372,12 @@ ol.card-text li {
 @media only screen and (hover: none) and (pointer: coarse){
 
 body {
-    font-size: 19px !important;
+    font-size: 20px !important;
 }
+  .site-header2 {
+    background: #fbfbfb!important;
+    height: 6rem!important;
+  }
 
   ul#howToUseJpTabs {
     display: grid;
@@ -380,7 +385,16 @@ body {
   
   .nav-tabs .nav-link {
     border-color:transparent!important;
+    margin-bottom: 0.5rem!important;
     border-radius:0!important;
+  }
+  .tab-content.firstw ol {
+    text-indent: 0!important;
+    margin-left: -1rem!important;
+}
+  
+  .top-content h3 {
+    padding-left: 1rem!important;
   }
   
 }
