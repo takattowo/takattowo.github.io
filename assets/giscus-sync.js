@@ -1,6 +1,6 @@
 (function () {
-  var LIGHT = 'https://takattowo.github.io/assets/giscus-light.css';
-  var DARK = 'https://takattowo.github.io/assets/giscus-dark.css';
+  var LIGHT = 'https://takattowo.io.vn/assets/giscus-light.css';
+  var DARK = 'https://takattowo.io.vn/assets/giscus-dark.css';
 
   var section = document.getElementById('comments');
   if (!section) return;
