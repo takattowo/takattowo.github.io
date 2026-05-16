@@ -1,6 +1,6 @@
 (function () {
-  var LIGHT = 'https://takattowo.io.vn/assets/giscus-light.css';
-  var DARK = 'https://takattowo.io.vn/assets/giscus-dark.css';
+  var LIGHT = location.origin + '/assets/giscus-light.css';
+  var DARK = location.origin + '/assets/giscus-dark.css';
 
   var section = document.getElementById('comments');
   if (!section) return;
