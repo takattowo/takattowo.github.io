@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="darkreader-lock">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preload" as="image" href="https://github.com/takattowo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/reverse_avatar.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/assets/theme-init.js"></script>
+  <title>takattowo / blog</title>
+  <meta name="description" content="Blog about my random stuffs">
+  <link rel="canonical" href="https://takattowo.github.io/">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-brand">
+      <button type="button" class="brand-avatar" id="avatar-trigger" aria-label="View avatar">
+        <img class="avatar-light" src="https://github.com/takattowo.png" alt="takattowo" width="64" height="64">
+        <img class="avatar-dark" src="/assets/reverse_avatar.png" alt="takattowo" width="64" height="64">
+      </button>
+      <div class="brand-text">
+        <a href="/" class="brand-title">takattowo / blog</a>
+        <p class="brand-tag">Blog about my random stuffs</p>
+      </div>
+    </div>
+    <div class="header-tail">
+      <nav class="nav">
+        <a href="/" class="nav-link active">Blog</a>
+        <a href="/files/about-me" class="nav-link">Files</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
+        <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <main class="container">
+    <h1 class="page-title">All posts</h1>
+    <ul class="post-list">
+      <li class="post-item">
+        <a class="post-title" href="/blog/building-devtools-for-claude-code-with-claude-code">Building DevTools for Claude Code, with Claude Code</a>
+        <span class="post-date">2026-05-15</span>
+        <p class="post-summary">Built claude-code-devtools, a local dashboard for Claude Code sessions by tailing JSONL logs from ~/.claude/projects/. Found wasteful agent loops, fixed tricky state bugs, added secret redaction, and shipped plugin hooks + slash commands. Biggest lesson: observability exposes AI workflow flaws fast.</p>
+        <a class="post-more" href="/blog/building-devtools-for-claude-code-with-claude-code">Read more &rarr;</a>
+      </li>
+      <li class="post-item">
+        <a class="post-title" href="/blog/impostor-syndrome-in-the-ai-age">Impostor syndrome in the AI age</a>
+        <span class="post-date">2026-05-14</span>
+        <p class="post-summary">AI didn't erase the hard part of building software. It only made it easier to fake confidence around it. The real gap now lives in the boring middle: testing, debugging, security, and understanding why the code works.</p>
+        <a class="post-more" href="/blog/impostor-syndrome-in-the-ai-age">Read more &rarr;</a>
+      </li>
+      <li class="post-item">
+        <a class="post-title" href="/blog/welcome">Welcome to the blog!</a>
+        <span class="post-date">2026-04-27</span>
+        <p class="post-summary">Well, the first post ever for my blog!</p>
+        <a class="post-more" href="/blog/welcome">Read more &rarr;</a>
+      </li>
+    </ul>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <a href="https://github.com/takattowo">GitHub</a> ·
+      <a id="newpost-link" href="/admin/" hidden>New post</a>
+      <span id="newpost-sep" hidden>·</span>
+      <a id="auth-link" href="/admin/">Login</a>
+    </p>
+    <p>&copy; <span id="year"></span> Anh Duy, Tran</p>
+  </footer>
+  <script src="/script.js"></script>
+</body>
+</html>

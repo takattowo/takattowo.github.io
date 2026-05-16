@@ -1,0 +1,96 @@
+main {
+  --color-prettylights-syntax-comment: #6e7781;
+  --color-prettylights-syntax-constant: #0550ae;
+  --color-prettylights-syntax-entity: #8250df;
+  --color-prettylights-syntax-storage-modifier-import: #24292f;
+  --color-prettylights-syntax-entity-tag: #116329;
+  --color-prettylights-syntax-keyword: #cf222e;
+  --color-prettylights-syntax-string: #0a3069;
+  --color-prettylights-syntax-variable: #953800;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
+  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
+  --color-prettylights-syntax-invalid-illegal-bg: #82071e;
+  --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+  --color-prettylights-syntax-carriage-return-bg: #cf222e;
+  --color-prettylights-syntax-string-regexp: #116329;
+  --color-prettylights-syntax-markup-list: #3b2300;
+  --color-prettylights-syntax-markup-heading: #0550ae;
+  --color-prettylights-syntax-markup-italic: #24292f;
+  --color-prettylights-syntax-markup-bold: #24292f;
+  --color-prettylights-syntax-markup-deleted-text: #82071e;
+  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
+  --color-prettylights-syntax-markup-inserted-text: #116329;
+  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
+  --color-prettylights-syntax-markup-changed-text: #953800;
+  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
+  --color-prettylights-syntax-markup-ignored-text: #eaeef2;
+  --color-prettylights-syntax-markup-ignored-bg: #0550ae;
+  --color-prettylights-syntax-meta-diff-range: #8250df;
+  --color-prettylights-syntax-brackethighlighter-angle: #57606a;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
+  --color-prettylights-syntax-constant-other-reference-link: #0a3069;
+  --color-btn-text: #1a1a1a;
+  --color-btn-bg: #fdfaee;
+  --color-btn-border: #e6decd;
+  --color-btn-shadow: 0 1px 0 rgba(27, 31, 36, 0.04);
+  --color-btn-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --color-btn-hover-bg: #f1eada;
+  --color-btn-hover-border: #d8cfb8;
+  --color-btn-active-bg: #ebe3cd;
+  --color-btn-active-border: #d8cfb8;
+  --color-btn-selected-bg: #ebe3cd;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-bg: #2b5fa6;
+  --color-btn-primary-border: #1e4480;
+  --color-btn-primary-shadow: 0 1px 0 rgba(27, 31, 36, 0.1);
+  --color-btn-primary-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  --color-btn-primary-hover-bg: #1e4480;
+  --color-btn-primary-hover-border: #1e4480;
+  --color-btn-primary-selected-bg: #1e4480;
+  --color-btn-primary-selected-shadow: inset 0 1px 0 rgba(0, 45, 17, 0.2);
+  --color-btn-primary-disabled-text: rgba(255, 255, 255, 0.8);
+  --color-btn-primary-disabled-bg: #94b3d8;
+  --color-btn-primary-disabled-border: rgba(27, 31, 36, 0.1);
+  --color-action-list-item-default-hover-bg: #ebe3cd;
+  --color-segmented-control-bg: #f1eada;
+  --color-segmented-control-button-bg: #fdfaee;
+  --color-segmented-control-button-selected-border: #d8cfb8;
+  --color-fg-default: #1a1a1a;
+  --color-fg-muted: #6b6b6b;
+  --color-fg-subtle: #6b6b6b;
+  --color-canvas-default: #f8f3e0;
+  --color-canvas-overlay: #fdfaee;
+  --color-canvas-inset: #f1eada;
+  --color-canvas-subtle: #fdfaee;
+  --color-border-default: #e6decd;
+  --color-border-muted: #ebe3cd;
+  --color-neutral-muted: rgba(230, 222, 205, 0.6);
+  --color-accent-fg: #2b5fa6;
+  --color-accent-emphasis: #2b5fa6;
+  --color-accent-muted: rgba(43, 95, 166, 0.4);
+  --color-accent-subtle: #e8eff8;
+  --color-success-fg: #1a7f37;
+  --color-attention-fg: #9a6700;
+  --color-attention-muted: rgba(212, 167, 44, 0.4);
+  --color-attention-subtle: #fff8c5;
+  --color-danger-fg: #cf222e;
+  --color-danger-muted: rgba(207, 34, 46, 0.4);
+  --color-danger-subtle: #ffebe9;
+  --color-primer-shadow-inset: 0 1px 0 rgba(208, 215, 222, 0.2);
+  --color-scale-gray-1: #ebe3cd;
+  --color-social-reaction-bg-hover: #ebe3cd;
+  --color-social-reaction-bg-reacted-hover: rgb(43, 95, 166, 0.1);
+}
+
+html, body {
+  background-color: transparent;
+  color: #1a1a1a;
+}
+
+main .pagination-loader-container {
+  background-image: url("https://github.com/images/modules/pulls/progressive-disclosure-line.svg");
+}
+
+main .gsc-loading-image {
+  background-image: url("https://github.githubassets.com/images/mona-loading-default.gif");
+}

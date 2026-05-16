@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="darkreader-lock">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preload" as="image" href="https://github.com/takattowo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/reverse_avatar.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/assets/theme-init.js"></script>
+  <title>Building DevTools for Claude Code, with Claude Code · takattowo</title>
+  <meta name="description" content="Building claude-code-devtools: a local dashboard that tails Claude Code's JSONL transcripts to expose tokens, costs, file thrash, and wasted reads.">
+  <meta name="author" content="Anh Duy Tran">
+  <link rel="canonical" href="https://takattowo.github.io/blog/building-devtools-for-claude-code-with-claude-code">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="takattowo / blog">
+  <meta property="og:title" content="Building DevTools for Claude Code, with Claude Code">
+  <meta property="og:description" content="Building claude-code-devtools: a local dashboard that tails Claude Code's JSONL transcripts to expose tokens, costs, file thrash, and wasted reads.">
+  <meta property="og:url" content="https://takattowo.github.io/blog/building-devtools-for-claude-code-with-claude-code">
+  <meta property="og:image" content="https://github.com/takattowo.png">
+  <meta property="article:author" content="Anh Duy Tran">
+  <meta property="article:published_time" content="2026-05-15">
+  <meta property="article:modified_time" content="2026-05-15T20:45:56+07:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building DevTools for Claude Code, with Claude Code">
+  <meta name="twitter:description" content="Building claude-code-devtools: a local dashboard that tails Claude Code's JSONL transcripts to expose tokens, costs, file thrash, and wasted reads.">
+  <meta name="twitter:image" content="https://github.com/takattowo.png">
+  <meta name="twitter:site" content="@takattowo">
+  <meta name="twitter:creator" content="@takattowo">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://takattowo.github.io/blog/building-devtools-for-claude-code-with-claude-code"},"headline":"Building DevTools for Claude Code, with Claude Code","description":"Building claude-code-devtools: a local dashboard that tails Claude Code's JSONL transcripts to expose tokens, costs, file thrash, and wasted reads.","image":"https://github.com/takattowo.png","datePublished":"2026-05-15","dateModified":"2026-05-15T20:45:56+07:00","author":{"@type":"Person","name":"Anh Duy Tran","url":"https://github.com/takattowo"},"publisher":{"@type":"Organization","name":"takattowo","logo":{"@type":"ImageObject","url":"https://github.com/takattowo.png"}}}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-brand">
+      <button type="button" class="brand-avatar" id="avatar-trigger" aria-label="View avatar">
+        <img class="avatar-light" src="https://github.com/takattowo.png" alt="takattowo" width="64" height="64">
+        <img class="avatar-dark" src="/assets/reverse_avatar.png" alt="takattowo" width="64" height="64">
+      </button>
+      <div class="brand-text">
+        <a href="/" class="brand-title">takattowo / blog</a>
+        <p class="brand-tag">Blog about my random stuffs</p>
+      </div>
+    </div>
+    <div class="header-tail">
+      <nav class="nav">
+        <a href="/" class="nav-link active">Blog</a>
+        <a href="/files/about-me" class="nav-link">Files</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
+        <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <main class="container">
+    <p><a href="/" class="back-link">&larr; All posts</a></p>
+    <article class="post-content">
+      <h1>Building DevTools for Claude Code, with Claude Code</h1>
+      <p class="meta">
+        <time datetime="2026-05-15">2026-05-15</time>
+      </p>
+      <p>There&#39;s a moment, when you&#39;ve been pair-programming with an AI for a few weeks, where it stops feeling like a parlor trick and starts feeling like... something else. Not magic. Not a colleague. Something in between. A weirdly competent ghost that lives inside your terminal, scrolls past your screen at superhuman speed, and occasionally, very politely, deletes the wrong file.</p>
+<p>That ghost is Claude Code. I&#39;ve been using it as my daily driver for a few months now, and the thing that kept bothering me wasn&#39;t that it made mistakes (it does, but so do I), and it wasn&#39;t that it was slow (it isn&#39;t, mostly). It was that I couldn&#39;t <em>see</em> what it was doing.</p>
+<p>Sure, the terminal scrolls. Tool calls flash by. A spinner spins. A long edit lands and something works or doesn&#39;t. But after a session ends, I had no real way to answer the questions I actually cared about:</p>
+<ul>
+<li>Where did all my tokens go?</li>
+<li>Which files did this thing thrash on the most?</li>
+<li>Why did that one task cost me $1.40 when the next one cost twelve cents?</li>
+<li>Did it read the same file <em>six times</em> or am I imagining things?</li>
+</ul>
+<p>I wanted Chrome DevTools, but for my AI. A timeline. A heatmap. A scrubber. Something I could leave open in a second monitor and just <em>watch</em>.</p>
+<p>So I built it. With the AI. Watching itself.</p>
+<p>This is the story of that, including the parts where things went sideways.</p>
+<h2>The seed: &quot;wait, where does this stuff actually live?&quot;</h2>
+<p>The first useful realization was a boring one. Claude Code already writes everything it does to disk. Every session, every turn, every tool call, every byte of every file read, every token of every response. It all lands in a JSONL file under <code>~/.claude/projects/&lt;encoded-cwd&gt;/&lt;session-id&gt;.jsonl</code>.</p>
+<p>So I didn&#39;t need to hook into the model. I didn&#39;t need any kind of clever instrumentation. I just needed to <em>tail those files</em> and turn the raw events into something a human could squint at.</p>
+<p>That changed everything. The problem went from &quot;build an observability platform for an LLM&quot; to &quot;build a glorified log viewer&quot;. And glorified log viewers are deeply within my powers.</p>
+<p>I opened a fresh repo, called it <code>cli-talker</code> (the package name stuck even after I renamed the project to <code>claude-code-devtools</code> for clarity), and asked Claude Code to help me scaffold a pnpm monorepo.</p>
+<p>It did. Five packages, roughly:</p>
+<ul>
+<li><code>core</code>: types, the database layer, the normalizer that turns raw events into a unified schema.</li>
+<li><code>adapter-claude-code</code>: the bit that knows how to parse Claude Code&#39;s specific JSONL format.</li>
+<li><code>server</code>: Fastify HTTP + WebSocket, file watcher, REST routes.</li>
+<li><code>web</code>: React SPA with the timeline and heatmap.</li>
+<li>The CLI binary itself, just a thin wrapper that boots the server and opens your browser.</li>
+</ul>
+<p>That separation between <code>core</code> and <code>adapter-*</code> mattered a lot more than it sounds. The whole point was that one day I&#39;d want to plug in Codex, or Cursor, or Gemini CLI, and treat them all as instances of the same abstraction. An <code>AgentAdapter</code> knows how to <code>discover</code> sessions and <code>readChunk</code> events. Everything downstream (storage, normalization, the UI) never has to care which agent it came from.</p>
+<p>This is the kind of architectural decision that, if I were building alone, I might have skipped on day one and regretted on day forty. Pair-programming with Claude, it came almost for free. I described the shape I wanted, it pushed back on a couple of things (rightly), and we landed on something I still haven&#39;t had to rewrite.</p>
+<h2>The first build</h2>
+<p>The first version was, honestly, kind of magical to use.</p>
+<pre><code class="language-bash">node packages/cli/dist/index.js
+</code></pre>
+<p>Browser opens. Empty timeline. I open a second terminal, start a Claude Code session, ask it to do something (anything), and within about a second and a half, rows start streaming into my browser.</p>
+<p>Read. Read. Edit. Bash. Read. Edit. WebFetch. Edit.</p>
+<p>Each row colored by tool, each one stamped with a duration and a file path, all of it ticking past in real time. Watching the agent work felt like watching a long-exposure photograph develop. Suddenly I could <em>see</em> the shape of a session. The thinking parts (lots of small reads, quick edits) versus the slogging parts (one Bash call that takes twenty seconds, then nothing, then a wall of text).</p>
+<p>The file heatmap landed next, and that&#39;s when I started noticing things I didn&#39;t want to notice. Like the time Claude read the same <code>package.json</code> four times in a single task. Or the time it edited a file, re-read it, edited it again, re-read it again. Each one a small sin, individually defensible. Collectively: a couple thousand tokens I didn&#39;t need to spend.</p>
+<p>This is the recurring lesson of building DevTools for any system: you&#39;ll find embarrassing things and then you&#39;ll have to decide what to do about them.</p>
+<h2>The bug that broke my brain: &quot;model: unknown&quot;</h2>
+<p>I want to tell you about this one because it captures what working with an LLM on a real project actually feels like.</p>
+<p>I shipped the dashboard view. Top tools, top files, cost by model, total tokens spent across all sessions. The whole bird&#39;s-eye view. I opened it up, looked at my last week of activity, and saw something deeply weird:</p>
+<p><strong>Model: unknown. Cost: $0.00.</strong></p>
+<p>For <em>every single session</em>.</p>
+<p>This was not what I wanted my dashboard to say. My dashboard had one job. Its job was to tell me how much money I&#39;d spent. And it had decided the answer was zero. This was, in a strict accounting sense, incorrect.</p>
+<p>I asked Claude to help me debug. We started where you start: the normalizer. The piece that takes raw events and turns them into the schema the rest of the app uses. Surely the issue was there. Surely we were dropping the <code>model</code> field somewhere in the pipeline.</p>
+<p>It wasn&#39;t dropping it. The <code>model</code> field was making it into the database fine, for <em>some</em> sessions. For others, the very first event in the JSONL didn&#39;t include a model name at all. It only appeared a few turns in, after the first assistant response.</p>
+<p>This is where it got interesting. The normalizer was using an <code>INSERT ON CONFLICT</code> pattern to upsert sessions as new events streamed in. To prevent later events from overwriting earlier metadata, certain fields (including <code>model</code>) were marked as immutable after first write.</p>
+<p>You can see the trap. The very first event didn&#39;t have a model. So the session got persisted with <code>model: null</code>. The <em>second</em> event had the model. But by then, the field was immutable. The session was stuck with &quot;unknown&quot; forever.</p>
+<p>Once we found it, the fix was small. Change the upsert logic to allow the model field to be filled in <em>if and only if</em> it was previously null. Re-run against the full session corpus. Watch the dashboard light up with proper model names and proper costs.</p>
+<p>But the journey to that fix was, I think, the most quintessentially &quot;AI pair-programming&quot; experience I&#39;ve ever had. Claude was relentless. It wrote tests, it traced the code path, it offered three plausible hypotheses, it ruled out two of them, and then (and this is the part that still surprises me), it caught its own earlier reasoning mistake and corrected itself without me having to prompt it.</p>
+<p>It&#39;s not that I couldn&#39;t have found the bug alone. I would have, eventually. It&#39;s that the <em>speed of the loop</em> was different. The &quot;what if it&#39;s this&quot;, &quot;let me check&quot;, &quot;no, it&#39;s not that&quot; cycle, which usually takes me an hour with coffee breaks, took fifteen minutes.</p>
+<p>I deleted the old SQLite store, restarted the server, watched the dashboard rebuild itself with 184 sessions across half a dozen models. Zero unknowns. Real numbers. A real total cost. (Which, I should admit, was higher than I expected. The dashboard immediately started doing its actual job, which was making me uncomfortable.)</p>
+<h2>The CI fight</h2>
+<p>Every project has a moment where the actual code is done and you spend two days fighting with CI.</p>
+<p>For this one, it was the moment I decided to publish to npm. The whole pitch of the project was &quot;you should be able to type <code>npx claude-code-devtools</code> and have it just work.&quot; That means bundling. That means a build step that produces a single, self-contained JavaScript file the user can run without installing a monorepo&#39;s worth of dependencies.</p>
+<p>The first attempt failed because the bundled CLI assets were being picked up by ESLint and flagged. Of course they were. The bundled file is, by definition, ugly machine-generated JavaScript, and our lint config (sensibly) didn&#39;t want anything to do with it.</p>
+<p>Fix: exclude the bundled output from ESLint.</p>
+<p>The second attempt failed because typecheck was running before build, and the typecheck stage was trying to validate generated types that didn&#39;t exist yet.</p>
+<p>Fix: reorder the CI steps so build runs first.</p>
+<p>The third attempt failed because of OIDC token configuration on the npm publish action. This one I&#39;ll spare you. It involved a lot of staring at GitHub Actions logs and reading documentation about scoped tokens. It got fixed.</p>
+<p>By the fourth attempt, <code>npx claude-code-devtools</code> worked. Anyone could install it. The README badges all turned green. The release pipeline was real.</p>
+<p>There&#39;s a particular kind of satisfaction in that moment. The project went from &quot;thing I&#39;m building&quot; to &quot;thing that exists&quot;. A small ceremony. A green checkmark. A version number that means something to npm&#39;s registry.</p>
+<h2>--redact, or: the demo problem</h2>
+<p>I wanted to record a demo. A short GIF of the timeline scrolling, the heatmap filling in, the inspector showing token counts. Pure marketing material.</p>
+<p>I opened my own dashboard, hit record... and immediately panicked. Because the timeline was full of file paths. And the inspector was showing actual prompt content. And, oh god, somewhere in there was probably an API key that I had <code>cat</code>&#39;d during some earlier debugging session.</p>
+<p>This was a design flaw, and not a small one. The whole appeal of a local DevTools is that you can see <em>everything</em>. The whole horror of recording a demo is that you can see <em>everything</em>.</p>
+<p>The solution was <code>--redact</code>. A CLI flag that takes a list of regex patterns and strips matches from the timeline before they reach the browser. Critically (and this part I&#39;m proud of), the redaction happens at the API layer, not at storage time. The underlying SQLite database is untouched. You can turn redaction off and your original data is right there.</p>
+<p>We seeded a default list of patterns: Anthropic keys, GitHub tokens, AWS access keys, Google API keys, Slack tokens. The usual suspects. Users can add their own with <code>--redact &quot;MY_PATTERN&quot;</code>. It&#39;s not perfect (no regex-based redaction ever is), but it lets me hit record without my heart rate spiking.</p>
+<p>This was the first feature I built thinking about <em>other people using the tool</em>, rather than just me. And it changed the way I thought about every subsequent feature. Once you&#39;ve designed for paranoid users, you can&#39;t un-design.</p>
+<h2>The plugin</h2>
+<p>The next leap was making <code>claude-code-devtools</code> itself a Claude Code plugin.</p>
+<p>This is where the recursion gets fun. Claude Code plugins are little bundles of slash commands, skills, and hooks that extend the agent&#39;s behavior. If I packaged my DevTools as a plugin, I could ship a <code>/devtools</code> slash command that booted the server with one keystroke, and (more interestingly) I could register hooks that captured <em>additional</em> events the JSONL wouldn&#39;t normally surface.</p>
+<p><code>SessionStart</code>. <code>PostToolUse</code>. <code>UserPromptSubmit</code>. <code>Stop</code>. Each one a chance for the plugin to POST a small JSON blob to my running server (<code>POST /api/ingest/hook</code>) and enrich the timeline with information that wasn&#39;t in the transcript file at all.</p>
+<p>This is the part where I had to stop and laugh, because the symmetry was getting absurd. I was using Claude Code to build a plugin for Claude Code that captured events from Claude Code so I could watch Claude Code work better. Strange loops all the way down. At some point in the process, I asked Claude to help me write the documentation for the plugin, and the plugin documented its own purpose, in a file that was being live-streamed into the dashboard I was looking at.</p>
+<p>I am not sure this is what people meant when they talked about &quot;AI alignment&quot; but I am pretty sure it is funny.</p>
+<p>The plugin shipped as v0.1.4. Install it from the marketplace, type <code>/devtools</code>, server starts, browser opens, hooks register, you&#39;re in. Total ceremony: about three seconds.</p>
+<h2>The 7d/30d bug</h2>
+<p>You ship a release. You feel good. You take a screenshot of the dashboard for a tweet. You click the &quot;7 days&quot; filter to scope the screenshot to recent activity.</p>
+<p>The dashboard goes empty.</p>
+<p>You click &quot;30 days&quot;. Still empty. You click &quot;all time&quot;. Everything&#39;s back.</p>
+<p>This was v0.1.4&#39;s parting gift to me. The dashboard date preset filtering was broken in a really specific way: the preset range was being computed at component-render time using <code>Date.now()</code>, but the resulting object was being used as a React Query key. Because the timestamp moved every millisecond, the query key was unstable, the cache was constantly invalidating, and the API was being called with subtly wrong parameters.</p>
+<p>The fix was to move the preset range computation <em>inside</em> the <code>queryFn</code>, so the cache key stayed stable. Same pattern broken in two places (dashboard and sessions sidebar), same fix.</p>
+<p>Shipped as v0.1.5. Five-minute fix, hour-long diagnosis. The classic ratio.</p>
+<p>This is the kind of bug that&#39;s genuinely interesting to debug with an AI partner, because the symptom (empty dashboard) is several layers removed from the cause (unstable timestamps in query keys), and the path between them goes through React, TanStack Query, your network tab, and your API layer. Tracing that chain alone is annoying. Tracing it with someone who can read all the relevant files in parallel is a different experience entirely.</p>
+<h2>The tiny one</h2>
+<p>I&#39;ll end with the one that&#39;s barely worth mentioning, except it&#39;s the one I&#39;m most attached to.</p>
+<p>When you switch between sessions in the sidebar, the main view used to reset to the timeline tab, even if you were looking at the heatmap. Every. Single. Time.</p>
+<p>This was, technically, working as intended. The state reset on session switch. It was deliberate. It was three lines of code in a Zustand action.</p>
+<p>It was also driving me insane, because I&#39;d developed a workflow where I&#39;d open the heatmap, click through sessions one by one, looking for the one with the most file thrash. Each click sent me back to the timeline. Each click I had to click &quot;Heatmap&quot; again.</p>
+<p>I asked Claude to remove the reset. It removed the reset. It rebuilt. I tested it. The tab persists now. v0.1.6.</p>
+<p>That was last week. I don&#39;t know if anyone else will ever notice this change. I notice it every single day, and every day, it makes me smile.</p>
+<h2>What I learned</h2>
+<p>If you&#39;re still here, here&#39;s the part where I try to extract a moral.</p>
+<p>I think the thing that surprised me most about building with Claude wasn&#39;t that it was <em>capable</em>. I expected that, by now. What surprised me was how much it changed the <em>shape</em> of my decisions. With a fast pair-programmer, the cost of trying something is so low that the calculus around &quot;should I refactor this?&quot; or &quot;should I add this feature?&quot; inverts. The friction that used to push me toward &quot;no, let&#39;s keep it simple&quot; got replaced by &quot;sure, let&#39;s see if it works&quot;.</p>
+<p>This is dangerous in some ways. I shipped at least one feature I should have pushed back on. I scope-crept twice. I built things &quot;because we could&quot; rather than &quot;because we needed to&quot;.</p>
+<p>But it also unlocked stuff I would not have built alone. The pluggable adapter layer. The redact mode. The hook-based plugin. The dashboard with cost-by-model breakdowns. Each of these felt like a multi-day project on its own, and each one shipped in an afternoon.</p>
+<p>The other thing I learned (and this one I think is durable) is that <em>observability into your own workflow is wildly underrated</em>. I built DevTools for Claude Code, and the very first useful thing it did was tell me I was using Claude Code badly. Not catastrophically. Just... wastefully. Reading files I&#39;d already read. Asking it to summarize stuff that didn&#39;t need summarizing. Letting it thrash on edits that should have been one careful diff.</p>
+<p>I&#39;m now a slightly better operator of my own tools because I built a tool that watches me operate them. Recursive self-improvement. The cheap kind, where you just look at a graph and feel bad until you stop doing the thing the graph is mad about.</p>
+<p>If you want to look at your own sessions, the install is one line:</p>
+<pre><code class="language-bash">npx claude-code-devtools
+</code></pre>
+<p>Or, if you&#39;re already inside Claude Code, the meta version:</p>
+<pre><code>/plugin marketplace add takattowo/claude-code-devtools
+/plugin install claude-code-devtools@claude-code-devtools
+/devtools
+</code></pre>
+<p>Open the browser tab. Start a session. Watch the rows scroll in.</p>
+<p>It&#39;s a small thing. But it&#39;s the kind of small thing that, after a week of using it, you can&#39;t quite imagine going back to working without.</p>
+<p>And that, I think, is the whole pitch.</p>
+
+    </article>
+      <section id="comments" class="comments"
+                data-giscus-repo="takattowo/takattowo.github.io"
+                data-giscus-repo-id="R_kgDOSdDGCQ"
+                data-giscus-category="Comments"
+                data-giscus-category-id="DIC_kwDOSdDGCc4C9KNw">
+        <script src="/assets/giscus-sync.js"></script>
+      </section>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <a href="https://github.com/takattowo">GitHub</a> ·
+      <a id="newpost-link" href="/admin/" hidden>New post</a>
+      <span id="newpost-sep" hidden>·</span>
+      <a id="edit-link" href="/admin/?edit=blog%2Fbuilding-devtools-for-claude-code-with-claude-code.md" hidden>Edit this page</a>
+      <span id="edit-sep" hidden>·</span>
+      <a id="auth-link" href="/admin/">Login</a>
+    </p>
+    <p>&copy; <span id="year"></span> Anh Duy, Tran</p>
+  </footer>
+  <script src="/script.js"></script>
+</body>
+</html>

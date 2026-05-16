@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="darkreader-lock">
+  <title>Admin · takattowo</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preload" as="image" href="https://github.com/takattowo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/reverse_avatar.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+  <script src="/assets/theme-init.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-brand">
+      <a href="/" class="brand-avatar">
+        <img class="avatar-light" src="https://github.com/takattowo.png" alt="takattowo" width="64" height="64">
+        <img class="avatar-dark" src="/assets/reverse_avatar.png" alt="" width="64" height="64" aria-hidden="true">
+      </a>
+      <div class="brand-text">
+        <a href="/" class="brand-title">takattowo / blog</a>
+        <p class="brand-tag">Blog about my random stuffs</p>
+      </div>
+    </div>
+    <div class="header-tail">
+      <nav class="nav">
+        <a href="/" class="nav-link">Blog</a>
+        <a href="/files/about-me" class="nav-link">Files</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
+        <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Admin</h1>
+
+    <section id="login-view" hidden>
+      <form id="login-form" class="admin-form">
+        <label>Password
+          <input type="password" id="pat-input" autocomplete="off" required>
+        </label>
+        <div class="admin-actions">
+          <button type="submit">Sign in</button>
+          <span id="login-status" class="muted small"></span>
+        </div>
+      </form>
+    </section>
+
+    <section id="editor-view" hidden>
+      <div class="admin-bar">
+        <span id="who" class="muted small"></span>
+        <button id="logout" type="button">Logout</button>
+      </div>
+
+      <p id="mode-indicator" class="muted small"></p>
+
+      <form id="post-form" class="admin-form">
+        <label id="folder-label">Folder
+          <select id="folder">
+            <option value="blog">blog</option>
+            <option value="files">files</option>
+          </select>
+        </label>
+        <label>Title
+          <input type="text" id="title" required>
+        </label>
+        <label id="slug-label" style="display:none">Slug (filename without .md)
+          <input type="text" id="slug" required>
+        </label>
+        <label id="date-label" style="display:none">Date (YYYY-MM-DD)
+          <input type="text" id="date">
+        </label>
+        <label>Body (Markdown)
+          <textarea id="body" rows="14"></textarea>
+        </label>
+        <label id="summary-label">Summary (for blog list)
+          <textarea id="summary" rows="2"></textarea>
+        </label>
+        <label id="description-label">Meta description (SEO, 50-160 chars)
+          <textarea id="description" rows="2" maxlength="160"></textarea>
+        </label>
+        <div class="admin-actions">
+          <button type="submit" id="submit-btn">Publish</button>
+          <button type="button" id="delete-btn" hidden>Delete</button>
+          <span id="status" class="muted small"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <a href="https://github.com/takattowo">GitHub</a> ·
+      <a id="auth-link" href="/admin/">Login</a>
+    </p>
+    <p>&copy; <span id="year"></span> Anh Duy, Tran</p>
+  </footer>
+
+  <script src="/script.js"></script>
+  <script src="/assets/md.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+  <script src="/assets/admin.js"></script>
+</body>
+</html>
