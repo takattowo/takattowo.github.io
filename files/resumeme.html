@@ -47,6 +47,20 @@
       <nav class="nav">
         <a href="/" class="nav-link">Blog</a>
         <a href="/files/about-me" class="nav-link active">Files</a>
+        <div class="file-mobile-nav" data-file-menu>
+          <span class="file-mobile-sep" aria-hidden="true">&gt;</span>
+          <button type="button" class="file-mobile-toggle" aria-haspopup="true" aria-expanded="false">
+            <span class="file-mobile-current">ResuMeme</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+          <ul class="file-mobile-list" hidden>
+            <li><a href="/files/about-me">About me</a></li>
+            <li><a href="/files/takatto-patcher">FS2 Maiden</a></li>
+            <li><a href="/files/windhawk-mods">Windhawk mods</a></li>
+            <li><a href="/files/xposed-modules">Xposed modules</a></li>
+            <li><a href="/files/resumeme" class="active">ResuMeme</a></li>
+          </ul>
+        </div>
       </nav>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
         <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -81,6 +95,7 @@
       </article>
     </div>
   </main>
+  <script src="/assets/file-menu.js"></script>
   <footer class="site-footer">
     <p>
       <a href="https://github.com/takattowo">GitHub</a> ·

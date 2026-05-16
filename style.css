@@ -171,7 +171,51 @@ p  { margin: 0.5em 0; }
   flex-wrap: wrap;
 }
 
-.nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.nav { display: flex; gap: 1.25rem; flex-wrap: wrap; align-items: center; }
+
+.file-mobile-nav {
+  display: none;
+  position: relative;
+  align-items: center;
+  gap: 0.5rem;
+}
+.file-mobile-sep { color: var(--muted); }
+.file-mobile-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  font: inherit;
+}
+.file-mobile-toggle:hover { color: var(--accent); }
+.file-mobile-toggle svg { display: block; }
+.file-mobile-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin: 0.35rem 0 0;
+  padding: 0.35rem 0;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 50;
+}
+.file-mobile-list li { margin: 0; padding: 0; }
+.file-mobile-list a {
+  display: block;
+  padding: 0.45rem 0.85rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.file-mobile-list a:hover { background: var(--bg); color: var(--accent); }
+.file-mobile-list a.active { color: var(--accent); }
 .nav-link {
   color: var(--text);
   text-decoration: none;
@@ -272,7 +316,18 @@ p  { margin: 0.5em 0; }
 }
 .links li:last-child, .cert-list li:last-child { border-bottom: none; }
 
-.post-list { margin: 1rem 0; }
+.post-list { margin: 0 0 1rem; }
+.seo-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .post-item {
   padding: 1.25rem 0;
   border-bottom: 1px solid var(--border);
@@ -547,13 +602,8 @@ p  { margin: 0.5em 0; }
 
 @media (max-width: 720px) {
   .file-viewer { grid-template-columns: 1fr; }
-  .file-sidebar {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding-right: 0;
-    padding-bottom: 1rem;
-    position: static;
-  }
+  .file-sidebar { display: none; }
+  .file-mobile-nav { display: inline-flex; }
 }
 
 @media (max-width: 560px) {
