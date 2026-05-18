@@ -166,7 +166,7 @@ p  { margin: 0.5em 0; }
 .header-tail {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -619,7 +619,7 @@ p  { margin: 0.5em 0; }
 }
 
 .header-search {
-  --pagefind-ui-scale: 0.7;
+  --pagefind-ui-scale: 0.5;
   --pagefind-ui-primary: var(--accent);
   --pagefind-ui-text: var(--text);
   --pagefind-ui-background: var(--surface);
