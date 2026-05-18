@@ -32,6 +32,9 @@
     if (idx < excerpt.length) target.appendChild(document.createTextNode(excerpt.slice(idx)));
   }
 
+  function show() { results.classList.add('is-open'); }
+  function hide() { results.classList.remove('is-open'); }
+
   function renderResults(items) {
     clear(results);
     if (!items.length) {
@@ -39,7 +42,7 @@
       empty.className = 'search-empty';
       empty.textContent = 'No results';
       results.appendChild(empty);
-      results.hidden = false;
+      show();
       return;
     }
     items.forEach(function (d) {
@@ -57,10 +60,8 @@
       a.appendChild(ex);
       results.appendChild(a);
     });
-    results.hidden = false;
+    show();
   }
-
-  function hide() { clear(results); results.hidden = true; }
 
   function runSearch(q) {
     if (!q || q.length < 2) { hide(); return; }
@@ -74,7 +75,7 @@
       err.className = 'search-empty';
       err.textContent = 'Search unavailable';
       results.appendChild(err);
-      results.hidden = false;
+      show();
     });
   }
 
