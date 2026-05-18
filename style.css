@@ -4,7 +4,6 @@
   --text: #1a1a1a;
   --muted: #6b6b6b;
   --border: #e6decd;
-  --border-soft: rgba(0, 0, 0, 0.12);
   --accent: #2b5fa6;
   --accent-hover: #1e4480;
   --max-width: 760px;
@@ -18,7 +17,6 @@
   --text: #ececea;
   --muted: #a5a5a3;
   --border: #46464d;
-  --border-soft: rgba(255, 255, 255, 0.14);
   --accent: #8fb8ed;
   --accent-hover: #b3cdf2;
   color-scheme: dark;
@@ -39,7 +37,7 @@ html {
 html, body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(rgba(247, 243, 224, 0.75), rgba(247, 243, 224, 0.60)), url("/assets/bg_light.png");
+  background: linear-gradient(rgba(247, 243, 224, 0.75), rgba(247, 243, 224, 0.85)), url("/assets/bg_light.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -51,7 +49,7 @@ html, body {
 }
 
 :root[data-theme="dark"], :root[data-theme="dark"] body {
-  background: linear-gradient(rgba(42, 42, 48, 0.9), rgba(42, 42, 48, 0.8)), url("/assets/bg_dark.png");
+  background: linear-gradient(rgba(42, 42, 48, 0.9), rgba(42, 42, 48, 0.95)), url("/assets/bg_dark.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -78,7 +76,7 @@ a:hover { color: var(--accent-hover); }
 
 hr {
   border: none;
-  border-top: 1px solid var(--border-soft);
+  border-top: 1px solid var(--border);
   margin: 1.5rem 0;
   height: 0;
 }
@@ -92,7 +90,7 @@ p  { margin: 0.5em 0; }
 .muted { color: var(--muted); }
 
 .site-header {
-  border-bottom: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border);
   padding: 1.25rem 1.5rem 0.75rem;
   max-width: var(--wide-width);
   width: 100%;
