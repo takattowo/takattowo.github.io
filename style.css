@@ -619,7 +619,7 @@ p  { margin: 0.5em 0; }
 }
 
 .header-search {
-  --pagefind-ui-scale: 0.75;
+  --pagefind-ui-scale: 0.7;
   --pagefind-ui-primary: var(--accent);
   --pagefind-ui-text: var(--text);
   --pagefind-ui-background: var(--surface);
@@ -630,27 +630,31 @@ p  { margin: 0.5em 0; }
   --pagefind-ui-font: inherit;
   position: relative;
   width: 280px;
+  margin-left: auto;
 }
-.header-search .pagefind-ui__form { position: relative; margin: 0; }
+.header-search .pagefind-ui,
+.header-search .pagefind-ui__form { margin: 0 !important; padding: 0 !important; position: relative; }
 .header-search .pagefind-ui__search-input {
-  height: 32px;
-  line-height: 32px;
-  box-sizing: border-box;
-  padding: 0 2rem 0 2rem;
-  font: inherit;
-  font-size: 0.9rem;
-  background-image: none;
-  background: var(--surface);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  width: 100%;
+  height: 32px !important;
+  min-height: 32px !important;
+  line-height: 1.2 !important;
+  box-sizing: border-box !important;
+  padding: 0 2rem 0 2rem !important;
+  font: inherit !important;
+  font-size: 0.85rem !important;
+  background-image: none !important;
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  width: 100% !important;
+  box-shadow: none !important;
 }
-.header-search .pagefind-ui__search-input::placeholder { color: var(--muted); }
-.header-search .pagefind-ui__search-input:hover { border-color: var(--accent); }
+.header-search .pagefind-ui__search-input::placeholder { color: var(--muted) !important; }
+.header-search .pagefind-ui__search-input:hover { border-color: var(--accent) !important; }
 .header-search .pagefind-ui__search-input:focus {
-  outline: none;
-  border-color: var(--accent);
+  outline: none !important;
+  border-color: var(--accent) !important;
 }
 .header-search .pagefind-ui__form::before {
   content: "";
