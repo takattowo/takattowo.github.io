@@ -84,6 +84,18 @@
     debounceId = setTimeout(function () { runSearch(input.value.trim()); }, 180);
   });
 
+  input.addEventListener('focus', function () {
+    var q = input.value.trim();
+    if (q.length >= 2) runSearch(q);
+  });
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      clearTimeout(debounceId);
+      runSearch(input.value.trim());
+    }
+  });
+
   document.addEventListener('click', function (e) {
     if (!e.target.closest('#search')) hide();
   });
