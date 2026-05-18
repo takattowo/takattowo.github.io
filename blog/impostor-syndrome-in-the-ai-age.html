@@ -13,7 +13,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
   <link rel="stylesheet" href="/style.css">
   <script src="/assets/theme-init.js"></script>
   <title>Impostor syndrome in the AI age · takattowo</title>
@@ -54,7 +53,13 @@
         <a href="/" class="nav-link active">Blog</a>
         <a href="/files/about-me" class="nav-link">Files</a>
       </nav>
-      <div id="search" class="header-search" data-pagefind-ignore></div>
+      <div id="search" class="header-search" data-pagefind-ignore>
+        <button type="button" class="search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+        <input type="search" class="search-input" placeholder="Search" aria-label="Search">
+        <div class="search-results" hidden></div>
+      </div>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
         <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -164,7 +169,6 @@
   </footer>
   <script src="/assets/auth-store.js"></script>
   <script src="/script.js"></script>
-  <script src="/pagefind/pagefind-ui.js"></script>
-  <script>window['addEventListener']('DOMContentLoaded',function(){window['PagefindUI']&&new PagefindUI({'element':'#search','showSubResults':!![],'showImages':![],'resetStyles':![],'placeholder':'Search'});});</script>
+  <script src="/assets/search.js" defer></script>
 </body>
 </html>
