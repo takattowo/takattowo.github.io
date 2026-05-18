@@ -170,6 +170,7 @@ p  { margin: 0.5em 0; }
   gap: 1rem;
   flex-wrap: wrap;
 }
+.header-tail:not(:has(.header-search)) .theme-toggle { margin-left: auto; }
 
 .nav { display: flex; gap: 1.25rem; flex-wrap: wrap; align-items: center; }
 
