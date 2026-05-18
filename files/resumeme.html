@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
   <script src="/assets/theme-init.js"></script>
   <title>ResuMeme · Files · takattowo</title>
   <meta name="description" content="End-to-end Azure side project that rewrites your CV with an LLM. Built on Static Web Apps, Functions, Blob Storage, and Azure OpenAI.">
@@ -64,6 +65,7 @@
           </ul>
         </div>
       </nav>
+      <div id="search" class="header-search" data-pagefind-ignore></div>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
         <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -86,7 +88,7 @@
         <li><a href="/files/xposed-modules">Xposed modules</a></li>
         </ul>
       </aside>
-      <article class="file-content post-content">
+      <article class="file-content post-content" data-pagefind-body>
         <h1>ResuMeme</h1>
         <p>A small project for learning the Azure stack end-to-end: Static Web Apps, managed Functions, Blob Storage, and Azure OpenAI. The app takes an uploaded CV (PDF or DOCX), parses it, runs the content through an LLM, and renders the result back to the user. It deploys via azd to a Free-tier SWA + Standard LRS storage account, and authenticates to Azure OpenAI with a key.</p>
 <p>This premium giga-VIP app turns your CV/resume into an absolute job-hunting war machine, sigma alpha gigachad style. Guaranteed your applications won&#39;t get ignored anymore. HR and recruiters will finish reading your CV and start calling you at 2 AM begging to schedule an interview.</p>
@@ -111,5 +113,7 @@
   </footer>
   <script src="/assets/auth-store.js"></script>
   <script src="/script.js"></script>
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>window['addEventListener']('DOMContentLoaded',function(){window['PagefindUI']&&new PagefindUI({'element':'#search','showSubResults':!![],'showImages':![],'resetStyles':![],'placeholder':'Search'});});</script>
 </body>
 </html>
