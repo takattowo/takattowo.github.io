@@ -1,14 +1,11 @@
 (function () {
   var wrap = document.getElementById('search');
   if (!wrap) return;
-  var btn = wrap.querySelector('.search-btn');
-  var panel = wrap.querySelector('.search-panel');
   var input = wrap.querySelector('.search-input');
   var results = wrap.querySelector('.search-results');
 
   var pf = null;
   var debounceId = null;
-  var hoverTimer = null;
 
   function loadPagefind() {
     if (pf) return Promise.resolve(pf);
@@ -63,12 +60,10 @@
     results.hidden = false;
   }
 
+  function hide() { clear(results); results.hidden = true; }
+
   function runSearch(q) {
-    if (!q || q.length < 2) {
-      clear(results);
-      results.hidden = true;
-      return;
-    }
+    if (!q || q.length < 2) { hide(); return; }
     loadPagefind().then(function (lib) {
       return lib.search(q);
     }).then(function (res) {
@@ -83,53 +78,16 @@
     });
   }
 
-  function open() {
-    if (wrap.classList.contains('open')) return;
-    wrap.classList.add('open');
-    panel.hidden = false;
-    btn.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('search-modal-open');
-    setTimeout(function () { input.focus(); }, 30);
-  }
-
-  function close() {
-    wrap.classList.remove('open');
-    panel.hidden = true;
-    btn.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('search-modal-open');
-    input.value = '';
-    clear(results);
-    results.hidden = true;
-  }
-
-  btn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    if (wrap.classList.contains('open')) close(); else open();
-  });
-
-  wrap.addEventListener('mouseenter', function () {
-    clearTimeout(hoverTimer);
-    if (window.matchMedia('(hover: hover) and (min-width: 561px)').matches) open();
-  });
-  wrap.addEventListener('mouseleave', function () {
-    if (!window.matchMedia('(hover: hover) and (min-width: 561px)').matches) return;
-    hoverTimer = setTimeout(function () {
-      if (document.activeElement !== input && !input.value) close();
-    }, 250);
-  });
-
   input.addEventListener('input', function () {
     clearTimeout(debounceId);
     debounceId = setTimeout(function () { runSearch(input.value.trim()); }, 180);
   });
 
   document.addEventListener('click', function (e) {
-    if (!wrap.classList.contains('open')) return;
-    if (e.target.closest('#search')) return;
-    close();
+    if (!e.target.closest('#search')) hide();
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && wrap.classList.contains('open')) close();
+    if (e.key === 'Escape') { input.blur(); hide(); }
   });
 })();
