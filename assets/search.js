@@ -103,4 +103,18 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') { input.blur(); hide(); }
   });
+
+  var closingTimer = null;
+  input.addEventListener('blur', function () {
+    if (!window.matchMedia('(max-width: 560px)').matches) return;
+    wrap.classList.add('is-closing');
+    clearTimeout(closingTimer);
+    closingTimer = setTimeout(function () {
+      wrap.classList.remove('is-closing');
+    }, 220);
+  });
+  input.addEventListener('focus', function () {
+    clearTimeout(closingTimer);
+    wrap.classList.remove('is-closing');
+  });
 })();
