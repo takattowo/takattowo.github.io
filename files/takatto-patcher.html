@@ -17,6 +17,11 @@
   <link rel="preload" as="image" href="/assets/bg_light.png">
   <link rel="preload" as="image" href="/assets/bg_dark.png">
   <script src="/assets/theme-init.js"></script>
+  <script type="speculationrules">
+  {
+    "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }]
+  }
+  </script>
   <title>FS2 Maiden · Files · takattowo</title>
   <meta name="description" content="Community patcher for Freestyle2: Street Basketball. Adds QOL tweaks, mods, translations, and custom content across Global, Korea, and China servers.">
   <meta name="author" content="Anh Duy Tran">

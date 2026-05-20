@@ -17,6 +17,11 @@
   <link rel="preload" as="image" href="/assets/bg_light.png">
   <link rel="preload" as="image" href="/assets/bg_dark.png">
   <script src="/assets/theme-init.js"></script>
+  <script type="speculationrules">
+  {
+    "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }]
+  }
+  </script>
   <title>Xposed modules · Files · takattowo</title>
   <meta name="description" content="Xposed/LSPosed modules for Android. OutlookDevicePolicyBypass removes the device-admin enrollment prompt in Microsoft Outlook for Android.">
   <meta name="author" content="Anh Duy Tran">

@@ -17,6 +17,11 @@
   <link rel="preload" as="image" href="/assets/bg_light.png">
   <link rel="preload" as="image" href="/assets/bg_dark.png">
   <script src="/assets/theme-init.js"></script>
+  <script type="speculationrules">
+  {
+    "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }]
+  }
+  </script>
   <title>Windhawk mods · Files · takattowo</title>
   <meta name="description" content="Windhawk mods for Windows QOL. Expanded Clipboard lifts the clipboard cap; Start Menu Search Engine Swap replaces Bing with your default.">
   <meta name="author" content="Anh Duy Tran">

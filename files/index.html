@@ -17,6 +17,11 @@
   <link rel="preload" as="image" href="/assets/bg_light.png">
   <link rel="preload" as="image" href="/assets/bg_dark.png">
   <script src="/assets/theme-init.js"></script>
+  <script type="speculationrules">
+  {
+    "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }]
+  }
+  </script>
   <title>Files &middot; takattowo</title>
   <link rel="canonical" href="https://takattowo.io.vn/files/">
 </head>
