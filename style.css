@@ -124,7 +124,6 @@ p  { margin: 0.5em 0; }
 :root[data-theme="dark"] .brand-avatar .avatar-light { opacity: 0; view-transition-name: none; }
 :root[data-theme="dark"] .brand-avatar .avatar-dark  { opacity: 1; view-transition-name: brand-avatar; }
 ::view-transition-group(brand-avatar) { animation-duration: 0.25s; }
-::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
 
 .avatar-modal {
   position: fixed;
