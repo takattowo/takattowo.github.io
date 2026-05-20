@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="darkreader-lock">
-  <script>(function(){var K=localStorage['getItem']('theme')==='dark';if(K)document['documentElement']['setAttribute']('data-theme','dark');document['documentElement']['style']['backgroundColor']=K?'#2a2a30':'#f8f3e0';}());</script>
+  <script>(function(){var v=localStorage['getItem']('theme')==='dark';if(v)document['documentElement']['setAttribute']('data-theme','dark');document['documentElement']['style']['backgroundColor']=v?'#2a2a30':'#f8f3e0';}());</script>
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.ico">
@@ -13,11 +13,8 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/style.css">
-  <link rel="preload" as="image" href="/assets/bg_light.png">
-  <link rel="preload" as="image" href="/assets/bg_dark.png">
-  <script src="/assets/theme-init.js"></script>
   <script type="speculationrules">
   { "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }] }
   </script>
