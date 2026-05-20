@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="darkreader-lock">
-  <script>(function(){var z=localStorage['getItem']('theme')==='dark';if(z)document['documentElement']['setAttribute']('data-theme','dark');document['documentElement']['style']['backgroundColor']=z?'#2a2a30':'#f8f3e0';}());</script>
+  <script>(function(){var K=localStorage['getItem']('theme')==='dark';if(K)document['documentElement']['setAttribute']('data-theme','dark');document['documentElement']['style']['backgroundColor']=K?'#2a2a30':'#f8f3e0';}());</script>
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.ico">
@@ -18,6 +18,9 @@
   <link rel="preload" as="image" href="/assets/bg_light.png">
   <link rel="preload" as="image" href="/assets/bg_dark.png">
   <script src="/assets/theme-init.js"></script>
+  <script type="speculationrules">
+  { "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }] }
+  </script>
   <title>Impostor syndrome in the AI age · takattowo</title>
   <meta name="description" content="A personal look at impostor syndrome in the AI age and what it means for creators, developers, and thinkers.">
   <meta name="author" content="Anh Duy Tran">
