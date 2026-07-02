@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="darkreader-lock">
-  <script>(function(){var u=localStorage['getItem']('theme')==='dark';if(u)document['documentElement']['setAttribute']('data-theme','dark');document['documentElement']['style']['backgroundColor']=u?'#2a2a30':'#f8f3e0';}());</script>
+  <script>(function(){var F=localStorage['getItem']('theme')==='dark';if(F)document['documentElement']['setAttribute']('data-theme','dark');document['documentElement']['style']['backgroundColor']=F?'#2a2a30':'#f8f3e0';}());</script>
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.ico">
@@ -25,14 +25,14 @@
   <meta property="og:image" content="https://takattowo.io.vn/assets/avatar.png">
   <meta property="article:author" content="Anh Duy Tran">
   <meta property="article:published_time" content="2026-07-03">
-  <meta property="article:modified_time" content="2026-07-03T03:52:19+07:00">
+  <meta property="article:modified_time" content="2026-07-03T03:53:24+07:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Real AI: What's actually under the hood">
   <meta name="twitter:description" content="How AI actually works under the hood, explained through logs, tickets, and incidents support engineers deal with daily.">
   <meta name="twitter:image" content="https://takattowo.io.vn/assets/avatar.png">
   <meta name="twitter:site" content="@takattowo">
   <meta name="twitter:creator" content="@takattowo">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://takattowo.io.vn/blog/real-ai-whats-actually-under-the-hood"},"headline":"Real AI: What's actually under the hood","description":"How AI actually works under the hood, explained through logs, tickets, and incidents support engineers deal with daily.","image":"https://takattowo.io.vn/assets/avatar.png","datePublished":"2026-07-03","dateModified":"2026-07-03T03:52:19+07:00","author":{"@type":"Person","name":"Anh Duy Tran","url":"https://github.com/takattowo"},"publisher":{"@type":"Organization","name":"takattowo","logo":{"@type":"ImageObject","url":"https://takattowo.io.vn/assets/avatar.png"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://takattowo.io.vn/blog/real-ai-whats-actually-under-the-hood"},"headline":"Real AI: What's actually under the hood","description":"How AI actually works under the hood, explained through logs, tickets, and incidents support engineers deal with daily.","image":"https://takattowo.io.vn/assets/avatar.png","datePublished":"2026-07-03","dateModified":"2026-07-03T03:53:24+07:00","author":{"@type":"Person","name":"Anh Duy Tran","url":"https://github.com/takattowo"},"publisher":{"@type":"Organization","name":"takattowo","logo":{"@type":"ImageObject","url":"https://takattowo.io.vn/assets/avatar.png"}}}</script>
 </head>
 <body>
   <header class="site-header">
@@ -72,9 +72,9 @@
       <h1>Real AI: What's actually under the hood</h1>
       <p class="meta">
         <time datetime="2026-07-03">2026-07-03</time>
+        <span class="revision-badge">2 revisions</span>
       </p>
-      <h1>Real AI: What&#39;s Actually Under the Hood</h1>
-<p>If you work support or prod ops long enough, you get numb to buzzwords. AI is the newest one floating around every standup and every vendor pitch. Half the team treats it like magic, the other half treats it like a fad. Both are wrong. It is neither magic nor a fad, it is just a very specific kind of machine, and once you see how it actually works, a lot of the mystery falls apart.</p>
+      <p>If you work support or prod ops long enough, you get numb to buzzwords. AI is the newest one floating around every standup and every vendor pitch. Half the team treats it like magic, the other half treats it like a fad. Both are wrong. It is neither magic nor a fad, it is just a very specific kind of machine, and once you see how it actually works, a lot of the mystery falls apart.</p>
 <h2>It&#39;s a pattern matcher, not a brain</h2>
 <p>Strip away the marketing and a large language model does one thing: given some text, predict what word (technically a token) comes next. Do that over and over and you get a full response. That&#39;s it. No understanding in the way we mean it, no memory of you from yesterday, no little person inside thinking about your ticket. Just very good pattern completion, trained on a mountain of text.</p>
 <h2>The context window is your ticket thread</h2>
