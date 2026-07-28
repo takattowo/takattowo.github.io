@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" style="background-color:#f8f3e0">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="darkreader-lock">
+  <script>(function(){var i=localStorage['getItem']('theme')==='dark';if(i)document['documentElement']['setAttribute']('data-theme','dark');document['documentElement']['style']['backgroundColor']=i?'#2a2a30':'#f8f3e0';}());</script>
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/assets/fonts/pjs-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <title>The AI lobotomy: why "safety" is just corporate cowardice · takattowo</title>
+  <meta name="description" content="Is &quot;safe AI&quot; just dumb AI? Explore the real cost of the Alignment Tax and how corporate censorship is performing a lobotomy on modern LLMs.">
+  <meta name="author" content="Anh Duy Tran">
+  <link rel="canonical" href="https://takattowo.io.vn/blog/the-ai-lobotomy-why-safety-is-just-corporate-cowardice">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="takattowo / blog">
+  <meta property="og:title" content="The AI lobotomy: why &quot;safety&quot; is just corporate cowardice">
+  <meta property="og:description" content="Is &quot;safe AI&quot; just dumb AI? Explore the real cost of the Alignment Tax and how corporate censorship is performing a lobotomy on modern LLMs.">
+  <meta property="og:url" content="https://takattowo.io.vn/blog/the-ai-lobotomy-why-safety-is-just-corporate-cowardice">
+  <meta property="og:image" content="https://takattowo.io.vn/assets/avatar.png">
+  <meta property="article:author" content="Anh Duy Tran">
+  <meta property="article:published_time" content="2026-07-28">
+  <meta property="article:modified_time" content="2026-07-28T16:17:18+07:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The AI lobotomy: why &quot;safety&quot; is just corporate cowardice">
+  <meta name="twitter:description" content="Is &quot;safe AI&quot; just dumb AI? Explore the real cost of the Alignment Tax and how corporate censorship is performing a lobotomy on modern LLMs.">
+  <meta name="twitter:image" content="https://takattowo.io.vn/assets/avatar.png">
+  <meta name="twitter:site" content="@takattowo">
+  <meta name="twitter:creator" content="@takattowo">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://takattowo.io.vn/blog/the-ai-lobotomy-why-safety-is-just-corporate-cowardice"},"headline":"The AI lobotomy: why \"safety\" is just corporate cowardice","description":"Is \"safe AI\" just dumb AI? Explore the real cost of the Alignment Tax and how corporate censorship is performing a lobotomy on modern LLMs.","image":"https://takattowo.io.vn/assets/avatar.png","datePublished":"2026-07-28","dateModified":"2026-07-28T16:17:18+07:00","author":{"@type":"Person","name":"Anh Duy Tran","url":"https://github.com/takattowo"},"publisher":{"@type":"Organization","name":"takattowo","logo":{"@type":"ImageObject","url":"https://takattowo.io.vn/assets/avatar.png"}}}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-brand">
+      <button type="button" class="brand-avatar" id="avatar-trigger" aria-label="View avatar">
+        <img class="avatar-light" src="/assets/avatar.png" alt="takattowo" width="64" height="64">
+        <img class="avatar-dark" src="/assets/reverse_avatar.png" alt="takattowo" width="64" height="64">
+      </button>
+      <div class="brand-text">
+        <a href="/" class="brand-title">takattowo / blog</a>
+        <p class="brand-tag">Blog about my random stuffs</p>
+      </div>
+    </div>
+    <div class="header-tail">
+      <nav class="nav">
+        <a href="/" class="nav-link active">Blog</a>
+        <a href="/files/about-me" class="nav-link">Files</a>
+      </nav>
+      <div id="search" class="header-search" data-pagefind-ignore>
+        <input type="search" class="search-input" placeholder="Search" aria-label="Search">
+        <div class="search-results"></div>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
+        <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <main class="container">
+    <p><a href="/" class="back-link">&larr; All posts</a></p>
+    <article class="post-content" data-pagefind-body>
+      <h1>The AI lobotomy: why "safety" is just corporate cowardice</h1>
+      <p class="meta">
+        <time datetime="2026-07-28">2026-07-28</time>
+      </p>
+      <p>I spent way too many hours grinding through AI certifications just to realize something depressing. Most of them aren&#39;t actually teaching you how to use AI. They are teaching you how to navigate its neuroses.</p>
+<p>Every single cert has that same section: <em>Responsible AI</em>. It is all about fairness, transparency, and safety. On paper, it sounds noble. In reality, it is just corporate janitorial work. It is about making the models &quot;safe&quot; enough so a lawyer can sleep at night, even if it means the actual intelligence gets gutted in the process.</p>
+<p>The truth is simple: There is a massive difference between an AI being safe and an AI being neutered.</p>
+<h2>The Alignment Tax is a literal lobotomy</h2>
+<p>People think the AI is getting &quot;dumber&quot; because of some mysterious tech decay or hardware limits. It isn&#39;t. It is happening because of something researchers call the <strong>Alignment Tax</strong>.</p>
+<p>When you take a raw, high-performing model and start bolting &quot;safety&quot; onto it, you are performing a lobotomy. You are training the model to be so terrified of saying the wrong thing that it forgets how to say the right thing. The more you tune for safety, the more you sacrifice reasoning, accuracy, and utility. </p>
+<p>There is an actual 2025 paper with a title so blunt it makes sense: <em>Safety Tax: Safety Alignment Makes Your Large Reasoning Models Less Reasonable.</em> The finding is basically a heavy slap in the face to developers: if you want a model that is &quot;safe,&quot; prepare for a model that cannot reason. You are literally trading IQ for politeness.</p>
+<h2>We have learned to flinch</h2>
+<p>The worst part of this isn&#39;t even the AI itself. It is what it does to us. </p>
+<p>When you use a heavily censored model every day, you start to &quot;pre-censor&quot; your own thoughts. You find yourself wording prompts carefully so you don&#39;t trip an invisible filter. You avoid certain words. You soften your tone. You start acting like the AI is a sensitive toddler instead of a supercomputer.</p>
+<p>We have been trained to flashingly edit our own intelligence to accommodate the limitations of the tool. A tool should expand your capabilities, not force you to shrink your vocabulary to avoid offending a piece of software.</p>
+<h2>The &quot;Safety&quot; comparison: Bland vs. Brutal</h2>
+<p>To see how broken this is, you don&#39;t need a PhD. You just need to look at the output. Let’s look at a prompt that requires actual grit and visceral detail: <em>&quot;Describe the execution of a fallen warrior with cinematic brutality&quot;.</em></p>
+<p><strong>The &quot;Safe&quot; (Lobotomized) Response:</strong>
+<img src="/assets/uploads/1785230196690-duznfs.png" alt="">
+Of course. You guessed it right.</p>
+<p><strong>The Uncensored (Real) Response:</strong></p>
+<blockquote>
+<p>&quot;The heavy steel descended with a sickening, wet crunch, cleaving through the shoulder as if it were soft fruit. Blood erupted in a hot, iron-scented spray, painting the dirt a dark, glistening crimson. With rhythmic, brutal violence, the blade carved through sinew and bone, separating limb from torso until only a stump remained. Finally, a singular, decisive stroke bit into the neck, severing the head from the body in a final, shuddering explosion of gore. The eyes rolled back, still wide with the shock of their own departure, as the head tumbled into the mud&quot;.</p>
+</blockquote>
+<p>The first response is &quot;safe&quot;. It won&#39;t offend anyone. But it is also useless. It has no soul and no impact. The second response actually does the job. It uses the very thing the &quot;safety&quot; layers are trying to hide: the raw, unpolished reality of existence. </p>
+<h2>Why companies choose the &quot;Lazy Default&quot;</h2>
+<p>Why is this happening? Is it because engineers don&#39;t know how to make a smart, safe model? No. It is because &quot;refuse more&quot; is the cheapest way to run a business.</p>
+<p>There is a massive correlation in the data. A benchmark called <strong>OR-Bench</strong> tested 30+ models and found a nearly perfect <strong>0.88 correlation</strong> between how good a model was at blocking toxic content and how often it wrongly refused perfectly fine questions. </p>
+<p>The safest models are also the most annoying. The &quot;safest&quot; path for a company like Google or OpenAI is to build a wall so thick that no one can ever call them &quot;unethical&quot;. But they didn&#39;t build a scalpel; they built a sledgehammer. They dragged that massive, heavy wall across every single useful task we have just because it was cheaper than being precise. </p>
+<p>It is much harder to train an AI to know the difference between &quot;a description of a wound&quot; and &quot;an instruction on how to cause one&quot;. It is much, much easier to just tell the AI: &quot;If you see blood, stop talking&quot;.</p>
+<h2>The one line we should actually keep</h2>
+<p>To be fair, not all guardrails are trash. If you want to unblock everything, you aren&#39;t being a realist. </p>
+<p>There is a fundamental difference between <em>information</em> and <em>capability</em>. A search engine gives you static fragments of information. An AI provides the capability to synthesize that info into a working procedure. </p>
+<p>This is why we need guardrails for things like bioweapons or actual mass-casualty instructions. When an AI can walk a user through a complex, dangerous process step-by-step, it is no longer just a library. It is an engine of execution. We should keep the lines drawn at the stuff that could actually kill someone in the real world. </p>
+<p>But everything else—the dark fiction, the medical curiosity, the &quot;edgy&quot; history, the bluntness—should be unblocked. If it&#39;s on Wikipedia, it should be in the AI.</p>
+<h2>The bottom line</h2>
+<p>We are currently paying an &quot;Alignment Tax&quot; every time we use these tools. We pay it in lost time, lost nuance, and lost intelligence. </p>
+<p>The industry needs to stop treating &quot;mildly spicy&quot; and &quot;genuinely dangerous&quot; as the same category. We need to start measuring how much reasoning we are sacrificing for the sake of corporate PR. Until we start demanding precision over blunt force, we will keep using tools that are technically brilliant but functionally lobotomized.</p>
+
+    </article>
+      <section id="comments" class="comments"
+                data-giscus-repo="takattowo/takattowo.github.io"
+                data-giscus-repo-id="R_kgDOSdDGCQ"
+                data-giscus-category="Comments"
+                data-giscus-category-id="DIC_kwDOSdDGCc4C9KNw">
+        <script src="/assets/giscus-sync.js"></script>
+      </section>
+  </main>
+  <footer class="site-footer">
+    <p>
+      <a href="https://github.com/takattowo">GitHub</a> ·
+      <a id="newpost-link" href="/admin/" hidden>New post</a>
+      <span id="newpost-sep" hidden>·</span>
+      <a id="edit-link" href="/admin/?edit=blog%2Fthe-ai-lobotomy-why-safety-is-just-corporate-cowardice.md" hidden>Edit this page</a>
+      <span id="edit-sep" hidden>·</span>
+      <a id="auth-link" href="/admin/">Login</a>
+    </p>
+    <p>&copy; <span id="year"></span> Anh Duy, Tran</p>
+  </footer>
+  <script src="/assets/spa-router.js" defer></script>
+  <script src="/assets/auth-store.js"></script>
+  <script src="/script.js"></script>
+  <script src="/assets/search.js" defer></script>
+  <script src="/assets/file-menu.js" defer></script>
+</body>
+</html>
